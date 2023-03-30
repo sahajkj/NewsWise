@@ -1,0 +1,24 @@
+﻿body {
+    margin:0px; 
+}
+div{
+    margin:0px;
+}
+.navbar-brand{
+    font-size:25px;
+    font-family:'Inter-regular';
+    font-size: 20px;
+    position:relative;
+    left:50px;
+}
+.navbar-collapse {
+    font-family: Poppins-medium;
+    position: relative;
+    font-size: 11px;
+    right: 50px;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #FFBB00 !important;
+    text-decoration: underline;
+}

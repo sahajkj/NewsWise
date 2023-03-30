@@ -1,0 +1,145 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .Text1{
+        color:white;
+        font-family:'Poppins-semibold';
+       
+    }
+    .Text2{
+        color: #FFBB00;
+        font-family:'Poppins-semibold';
+    }
+    .disText{
+        position: relative;
+        left:100px;
+    }
+    .disimg{
+        margin-left:250px;
+        margin-right:200px;
+        margin-top:-35px;
+        
+    }
+    .inText{
+        font-family: 'Roboto-regular';
+        color: #B3B3B3;
+        font-size: 11px;
+    }
+    .learn{
+        background-color: #FFBB00;
+        font-family:'Poppins-semibold';
+        font-size:12px;
+    }
+    .SearchBar{
+        font-family:'Poppins-regular';
+        font-size:12px;
+    }
+    .SearchBut{
+        font-family:'Poppins-semibold';
+        font-size:12px;
+    }
+    .searchBody{
+        margin-top:-30px;
+    }
+    .article{
+        display:flex;
+    }
+    .ArtiTitle{
+        font-family:'Poppins-semibold';
+        color:black;
+    }
+    .End{
+        font-family:'Poppins-semibold';
+        color: #FFBB00;
+    }
+    .articleText{
+        display:flex;
+    }
+    .articleImage{
+        margin-top:20px;
+    }
+    .ArtiName{
+        font-family:'Poppins-semibold';
+    }
+    .ArticleContent{
+        margin-left:50px;
+        margin-top:10px;
+    }
+    .AntiIcon{
+        position:relative;
+        right:50px;
+    }
+    .content1{
+        font-family:'Roboto-regular';
+        font-size: 10px;
+    }
+    .readArticle{
+        font-family: 'Poppins-semibold';
+        background-color: #FFBB00;
+        border:0px solid;
+        position:relative;
+        right:20px;
+    }
+    .downScroll{
+        position: relative;
+        top:-10px;
+    }
+</style>
+<div class="TopicBG body-content p-5 bg-black" style="margin-top:-23px;margin-left:-20px;margin-right:-20px;">
+    <div class="displayTheme d-flex">
+        <div class="disText col-sm-4 body-content">
+           <h1 class="Text1">Stay Wise</h1>
+           <h1 class="Text2">See the Truth.</h1>        
+           <p class="inText">In a world of misinformation, NEWSWISE is the go-to<br/> platform for identifying and verifying the authenticity<br/> of news stories.</p>
+            <button class="learn p-3">LEARN MORE</button>
+        </div>
+        <div class="disimg body-content col-sm-4" style="width:300px;height:300px;">
+             <img src="~/image/news.jpg" style="width:400px; height:430px" />
+        </div>
+    </div>
+</div>
+<div class="BodyPar body-content p-5 bg-white">
+    <div class="searchBody" align=center>
+        <input type="text" class="SearchBar p-3 mt-auto text-center" placeholder="SEARCH FOR THE TRUTH..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
+        <input type="submit" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">
+    </div>
+    <div class="downScroll" align=center >
+        <button id="scroll-down-btn" runat="server" OnClick="window.scrollTo(0, document.body.scrollHeight);" style="background-color: transparent; border: none;">  <img src="~/image/down-arrow 1.png" class="downArrow" /></button>
+      </div>
+    <br/>
+    <br/>
+    <div class="article">
+        <div class="ArtiTitle">
+            <h1>Article of the day</h1>
+            </div>
+            <div class="End">
+                <h1>.</h1>
+        </div>
+    </div>
+    <div class="articleText">
+        <div class="articleImage">
+			<img src="~/image/articleimage1.jpg" style="width:295px;height:320px;"/>
+        </div>
+		<div class="ArticleContent">
+            <div class="AntiIcon" align=right>
+                <img src="~/image/dec.png"  />
+			</div>
+            <img src="~/image/sep.png" />
+            <h3 class="ArtiName">Man charged over alleged $34K text message scam</h3>
+            <p class="content1">
+                A man has been charged after allegedly obtaining more than $34,000 in a text message scam in Melbourne. <br/>
+                Police arrested the 27-year-old man at a property in Drinkwater Crescent, Sunshine West about 8.20pm last night.﻿
+            </p>
+            <br/>
+
+            <div class="readA" align=right>
+			   <button class="readArticle p-2">READ MORE<img src="~/image/vector 7.png" /></button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+</div>
