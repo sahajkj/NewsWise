@@ -1,0 +1,106 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Definition";
+}
+<style>
+   .Defi{
+       display:flex;
+    }
+  .DefiTitle{
+      font-family:Poppins-semiBold;
+      color:white;
+  }
+  .DefiContent{
+        position: relative;
+        left: 100px;
+  }
+  .baseInfo{
+        font-family:Roboto-regular;
+        color: #B3B3B3;
+        font-size: 12px;
+  }
+  .FakeImg{
+      position: relative;
+      left:100px;
+  }
+  .Scroll{
+      position:relative;
+      top:-20px;
+  }
+  .SubTopic{
+      font-family:Poppins-semibold;
+      
+  }
+  .textCon{
+      font-family:Roboto-regular;
+      font-size:13px;
+  }
+  .textSub{
+        font-family: Poppins-semibold;
+        font-size: 13px;
+        color: black;
+  }
+  .FakeContent{
+       background-image: url('../Image/Back.png');
+       background-size:cover;
+  }
+</style>
+<body>
+    <div class="Defi bg-black p-3 body-content" style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
+        <div class="FakeText">
+            <br/>
+            <br/>
+        <h1 class="DefiTitle">Fake News</h1>
+        <p class="baseInfo">Not all content online gets verified or checked for quality.  Anyone can write a story or create content <br/>to post online, whether the story is factually accurate or not.   It's important that we make ourselves<br/> aware of this so that we don't also believe it, or even unintentionally spread it ourselves.</p>
+        </div>
+        <div class="FakeImg">
+              <img src="~/image/fake.jpg"style="width:400px;height:300px" />
+        </div>
+    </div>
+    
+    <div class="FakeContent" style="margin-right:-12px">
+        <div class="Scroll" align=center>
+            <button id="scroll-down-btn" runat="server" OnClick="window.scrollTo(0, document.body.scrollHeight);" style="background-color: transparent; border: none;">  <img src="~/image/down-arrow 1.png" class="downArrow" /></button>
+        </div>
+    <div class="DefiContent" style="margin-right:150px" align="justify">
+        <h2 class="SubTopic">What is Fake News?</h2>
+        <p class="textCon">
+            Fake news is a general term for any information online created which lead viewers to draw incorrect or partially incorrect conclusions.  Fake news can be entire news articles created in a way to appear like their a trustworthy source, to a rumour that spreads on social media.
+        </p>
+        <p class="textCon">
+            There is several types of Fake News:
+        </p>
+        <p class="textSub">Dis-information</p>
+        <p class="textCon">
+            Information which is intentionally incorrect, designed in a way to cause some form of harm or false ideas about a person or group.
+        </p>
+        <p class="textSub">Mis-information</p>
+        <p class="textCon">
+            This is information that is factually incorrect, however it generally wasn't created with the intention of misleading someone.
+        </p>
+        <p class="textSub">Mal-information</p>
+        <p class="textCon">
+            This is information which may be true or partially true, but it is told in a way to cause the readers to draw incorrect conclusions, often leading to some form of harm or false ideas about a person or group.
+        </p>
+        <br/>
+        <p class ="textCon">Source:  <a href= "https://www.keepitrealonline.govt.nz/youth/misinformation/what-is-misinformation/">https://www.keepitrealonline.govt.nz/youth/misinformation/what-is-misinformation/</a></p>
+
+        <h2 class="SubTopic">Why is it created?</h2>
+        <p class="textCon">
+            Not all information is intentionally created to be misleading, although some of it is.  Misleading information could start by people being genuinely mistaken while sharing ideas or opinions they heard.  However, there's also cases of misinformation spreading which was intentionally designed to influence people's political opinions, or to damage the reputation of an individual.
+        </p>
+        <p class="textCon">
+            It's important to stay aware of how to identify fake news so that we can prevent this misinformation and harm that the author intended.
+        </p> 
+        <p class="textCon">
+            More information on why Fake News is created can be found here.
+        </p>
+    </div>
+    <br/>
+    <br/>
+    </div>
+    
+</body>
+

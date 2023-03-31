@@ -22,3 +22,11 @@ div{
     color: #FFBB00 !important;
     text-decoration: underline;
 }
+.navbar-nav .nav-item.nav-link a:focus {
+    color: #FFBB00 !important;
+    text-decoration: underline;
+}
+    .dropdown a:hover {
+        color: #FFBB00 !important;
+        text-decoration: underline;
+    }

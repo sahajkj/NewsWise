@@ -5,6 +5,10 @@
     src: url('../fonts/roboto-regular.ttf') format('truetype');
 }
 @font-face {
+    font-family: 'roboto-medium';
+    src: url('../fonts/roboto-medium.ttf') format('truetype');
+}
+@font-face {
     font-family: 'poppins-regular';
     src: url('../fonts/poppins-regular.ttf') format('truetype');
 }

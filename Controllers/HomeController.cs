@@ -12,12 +12,18 @@ namespace NewsWise.Controllers
         {
             _logger = logger;
         }
-
+        public IActionResult Definition()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
         }
-
+        public IActionResult SpotTip()
+        {
+            return View();
+        }
         public IActionResult Education()
         {
             return View();
@@ -36,6 +42,7 @@ namespace NewsWise.Controllers
         {
             return View();
         }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
