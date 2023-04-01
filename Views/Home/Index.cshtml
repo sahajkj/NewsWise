@@ -104,12 +104,14 @@
     </div>
     <br/>
     <br/>
+    <form runat="server" method="get" >
      <div class="searchBody" align=center>
-        <input type="text" class="SearchBar p-3 mt-auto text-center" placeholder="SEARCH FOR THE TRUTH..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
-        <input type="submit" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">     
-    </div>
+        <input type="search" class="SearchBar p-3 mt-auto text-center" placeholder="SEARCH FOR THE TRUTH..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
+            <input type="submit" runat="server" asp-area="" asp-controller="Home" asp-action="SearchResult" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">
+        </div>
+    </form>
     <div class="downScroll " align=center>
-        <button id="scroll-down-btn" runat="server" OnClick="window.scrollTo(0, document.body.scrollHeight);" style="width:45px;height:45px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 2.png" class="downArrow" /></button>
+        <button id="scroll-down-btn"  OnClick="window.scrollTo(0, document.body.scrollHeight);" style="width:45px;height:45px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 2.png" class="downArrow" /></button>
     </div>
 </div>
 
