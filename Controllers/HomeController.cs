@@ -16,6 +16,11 @@ namespace NewsWise.Controllers
         {
             return View();
         }
+
+        public IActionResult Existence()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

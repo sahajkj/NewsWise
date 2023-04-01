@@ -1,0 +1,170 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Existence";
+}
+<style>
+    .ETitle1{
+        color:white;
+        font-family:Poppins-semibold;
+        position:relative;
+        left:70px;
+    }
+
+    .Back4 {
+        color: #708090;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+        position: relative;
+        left: 100px;
+    }
+
+    .Nav4 {
+        color: #708090;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+    }
+    .EArtiTitle{
+        font-family:Poppins-semibold;
+        color:black;
+        position: relative;
+        left: 100px;
+        
+
+    }
+    .existCon{
+        font-family:Roboto-regular;
+        font-size:13px;
+        position: relative;
+        left: 100px;
+    }
+    .existSub{
+        font-family:Poppins-semibold;
+        position: relative;
+        left: 100px;
+    }
+    .existBack{
+        background-image: url('../Image/Back.png');
+        background-repeat: no-repeat;
+        background-size: 70% 100%;
+        background-position: right center;
+    }
+
+    .existSub1 {
+        font-family: Poppins-semibold;
+        position: relative;
+        left: 100px;
+        font-size: 13px;
+    }
+</style>
+<body>
+    <div class="ExistenceT bg-black p-5 " style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
+        <br/>
+        <h1 class="ETitle1">The existence of fake news</h1>
+        <br/>
+    </div>
+    <div class="existBack" style="margin-right:-12px">
+        <div class="ExistContent" style="margin-right:150px" align="justify">
+            <div class="Scroll" align=center >
+                <button id="scroll-down-btn" runat="server" OnClick="window.scrollTo(0, document.body.scrollHeight);" style="margin-top:-20px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 1.png" class="downArrow" /></button>
+            </div>
+            <div class="Back4" style="margin-top:-20px">
+                <p>
+                    <a class="Nav4" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav4" asp-area="" asp-controller="Home" asp-action="Education">Education</a>  >  <a class="Nav4" asp-area="" asp-controller="Home" asp-action="Existence">The existence of fake news</a>
+                </p>
+            </div>
+            <div class="ExistArti p-2">
+                <h2 class="EArtiTitle">
+                    Why is it created?
+                </h2>
+                <p class="existCon">It's important to remember that there can be a variety of reasons and causes false information spreads online.</p>
+                <br/>
+                <h4 class="existSub">
+                    Unintentional Fake News
+                </h4>
+                <p class="existCon">
+                    Due to the recent concern over growing amounts of misinformation generated online, academics at Massachusetts Institute of Technology have been researching how unintentional mis-information can be spread so easily online.  They found that around 50% of active internet users have spread misinformation at some point- usually because their attention is focused on something else.
+                <br/>
+                    People generally share content that creates some form of emotional response.  Often with memes, this could be because they find the content funny.  If they find a joke that they don't find funny, there's not much chance they'd pass it on.  Other emotions lead to people sharing online content also- it could be content they really agree with, or something that makes them angry among many others.
+                <br/>
+                    The issue is when people see and repost content online, it can become like a game of Telephone where the message gets changed over time.   As stories become more and more factually inaccurate, they tend to be spread and shared even more as often these factual inaccuracies create a stronger emotion.  For example, if someone sees a meme and changes it to make it even more funny, this funnier version is more likely to be spread by the next person.   After several people have changed the meme, it may end up being completely different from the original joke - just like the game of Telephone.
+                <br/>
+                    Unfortunately, when this comes to political ideas and beliefs, the same ideas cause people to unintentionally create and share information.  When they see a story online that really aligns with their beliefs, they're much more likely to share it.  The MIT study even showed that when sharing content online, people are more focused on whether it aligns with their beliefs over whether the content is factually accurate.  However, each time the story is shared, the facts changed tend to make the story align even more with the political viewpoint.
+                <br/>
+                    As a result of this, no one intentionally changed the story.  However over time the story became Fake News as crucial details were changed.  The following video explains this issue further.
+                <br/>
+                    <a href="https://www.youtube.com/watch?v=rE3j_RHkqJc">https://www.youtube.com/watch?v=rE3j_RHkqJc</a>
+                    <br/>
+                    <div align=center>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rE3j_RHkqJc"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <br/>
+                </p>
+                <p class="existCon">
+                    Sources:
+                    <br/>
+                    <a href="https://www.euronews.com/my-europe/2021/03/18/most-misinformation-spread-online-is-accidental-study-finds">https://www.euronews.com/my-europe/2021/03/18/most-misinformation-spread-online-is-accidental-study-finds</a>
+                    <br/>
+                    <a href="https://www.media.mit.edu/publications/shifting-attention-to-accuracy-can-reduce-misinformation-online/">https://www.media.mit.edu/publications/shifting-attention-to-accuracy-can-reduce-misinformation-online/</a>
+                    <br/>
+                    <br/>
+                </p>
+                <h4 class="existSub">Intentional False Information</h4>
+                <br/>
+                <p class="existCon">
+                    Generally intentional false information can be designed for the following reasons:
+                    <br/>
+                    <br />
+                     - To provoke an individual or a group
+                    <br />
+                     - To profit
+                    <br />
+                     - To damage an individual or organisation's reputation
+                    <br />
+                     - As political influence
+                    <br />
+                     - As Satire
+                    <br />
+                    <br />
+                    Intentional false information is especially dangerous, as it can be carefully designed in a way that even if people eventually realise it's false information, their behaviour still gets changed enough to cause the desired effect.  A famous example of this was the link between the MMR vaccine and autism.  In 1998, researchers falsified a research paper linking the measles, mumps and rubella vaccine to behavioural regression and pervasive development disorder in children.  While this fake news was almost immediately debunked by multiple organisations and universities, to this day people hold scepticism towards certain vaccines with their link to autism [1].
+                    <br />
+                    In this case, the false information was designed as a way for a particular company to profit and to damage another organisations reputation.  However, false information has been created recently to push forward certain ideologies or political ideas.
+                    <br/>
+                    Source:
+                    <br/>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136032/">
+                        [1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136032/
+                    </a>
+                </p>
+                <h4 class="existSub">Biased Information</h4>
+                <br/>
+                <p class="existCon">
+                    Biased information can be another form of fake news. While biased news falls mostly into the category of malformation biased information can also be presented where the information is entirely factual, however it encourages the readers to form a particular political opinion.
+                    <br/>
+                    <br/>
+                    <em>Malinformation - Information which may be true or partially true, but told in a way to cause the readers to draw incorrect conclusions.
+                    </em>
+                    <br />
+                    <br />
+                    Biased information could be both intentional or unintentional.  And neither is necessarily wrong to do.
+                </p>
+                <br/>
+                <p class="existSub1">Loaded Words</p>
+                <p class="existCon">This is wording that attempts to influence an audience by trying to create an emotional reaction.</p>
+                <p class="existSub1"> Omitting Certain Information</p>
+                <p class="existCon">This occurs when information is omitted to prevent damage to the authors political cause.</p>
+                <p class="existSub1"> Story Selection</p>
+                <p class="existCon">
+                    This typically occurs on news websites, although it can also occur in social media.  This is where the publisher chooses to only post a story or information if it supports their political cause.  If a story comes up that hurts their cause, they would not publish anything and pretend it doesn't exist.  When reading information from biased media using this technique, it gives the illusion that everyone supports these same beliefs and all the world events currently happening also support this view.
+                <br/>
+                <br/>
+                Any of these three things doesn't necessarily make the story false information.  However, each of them can cause the reader to draw specific conclusions.  These conclusions the reader draws is not necessarily factual.
+                </p>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+    </div>
+    </div>
+</body>
