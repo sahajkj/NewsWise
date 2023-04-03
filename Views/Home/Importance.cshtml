@@ -5,5 +5,134 @@
     ViewData["Title"] = "The importance of identifying fake news";
 }
 <body>
-    <h1>@ViewData["Title"]</h1>
+    <style>
+        .Stip {
+            display: flex;
+        }
+
+        .TipTitle {
+            font-family: Poppins-semibold;
+            color: white;
+            position: relative;
+            left: 70px;
+        }
+
+        .TipContent {
+            position: relative;
+            left: 70px;
+        }
+
+        .TipArtiTitle {
+            font-family: Poppins-semibold;
+        }
+
+        .TipContent {
+            margin-right: 250px;
+        }
+
+        .TipCText {
+            font-family: Roboto-regular;
+            font-size: 13px;
+        }
+
+        .TipSubTitle {
+            font-family: Poppins-semibold;
+            font-size: 13px;
+            color: black;
+        }
+
+        .TipBack {
+            background-image: url('../Image/Back.png');
+            background-repeat: no-repeat;
+            background-size: 70% 100%;
+            background-position: right center;
+        }
+
+        .Back3 {
+            color: #708090;
+            font-size: 10px;
+            font-family: 'Roboto-medium';
+        }
+
+        .Nav3 {
+            color: #708090;
+            font-size: 10px;
+            font-family: 'Roboto-medium';
+        }
+    </style>
+    <body>
+        <div class="Stip bg-black p-3 body-content" style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
+            <div class="TipText">
+                <br />
+                <br />
+                <h1 class="TipTitle">The importance of identifying fake news</h1>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="TipBack" style="margin-right:-12px;">
+            <div class="TipContent" align=justify>
+                <div class="Scroll" align=center>
+                    <button id="scroll-down-btn" runat="server" OnClick="window.scrollTo(0, document.body.scrollHeight);" style="background-color: transparent; border: none;">  <img src="~/image/down-arrow 1.png" class="downArrow" /></button>
+                </div>
+                <div class="Back3" style="margin-top:-20px">
+                    <p>
+                        <a class="Nav3" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav3" asp-area="" asp-controller="Home" asp-action="Education">Education</a>  >  <a class="Nav3" asp-area="" asp-controller="Home" asp-action="Importance">The importance of identifying fake news</a>
+                    </p>
+                </div>
+                <br />
+                <br />
+                <h2 class="TipArtiTitle">Why identifying Fake News is important </h2>
+                <p class="TipCText">
+                    In general, each person may have their own reasoning for why they prefer factual information and to be aware of fake news.  However below is a list of some of the main reasons why many people want to be aware of, and have the capability to spot false information.
+
+                </p>
+                <p class="TipSubTitle">
+                    So you don’t share incorrect information
+                </p>
+                <p class="TipCText">
+                    We all form opinions on topics and often in conversation we end up sharing these opinions with others.  It’s acceptable for some of these opinions to be based on emotions or our own reasoning, but when we try and back up our opinion with facts, none of us want to be the person who gets caught out repeating false information which we heard somewhere.
+
+                </p>
+                <p class="TipSubTitle">
+                    So you don’t personally believe incorrect information
+                </p>
+                <p class="TipCText">
+                    This follows on from the past point.  Not only do people not want to share this information, but they also generally want to be sure about what they believe, and not have to second guess everything.
+                </p>
+                <p class="TipSubTitle">To prevent the author of this information from achieving the purpose of their fake story</p>
+                <p class="TipCText">
+                    While some of the false information online was intended as satire, often it can be politically motivated, aimed at damaging an individual or companies reputation, or aimed to cause some other form of harm.  By believing this information, and potentially spreading it ourselves, we allow the author to ‘win’ and have people contribute to their objective.
+                </p>
+                <p class="TipSubTitle">
+                    To enable you to form your own opinion based on factual information
+                    
+                </p>
+                <p class="TipCText">
+                    As mentioned in earlier points, a lot of our opinions are based on facts we’ve heard.  If we hear the correct facts, we’re much more likely to have opinions which are based on reality.  But the same is the opposite - if we fall for fake news, what we believe ends up being different from reality.
+
+                </p>
+                <p class="TipSubTitle">
+                    To prevent manipulation from others in the process of forming your own opinions
+                </p>
+                <p class="TipCText">
+                    Not only should we be worried about having opinions based on reality, but we also want to be free to form our own opinions.  Without being able to spot fake news, it’s easy to be manipulated by others into believing their point of view.
+
+                </p>
+                <p class="TipSubTitle">False information can be dangerous</p>
+                <p class="TipCText">
+                    There are also cases where false information spreading can be particularly dangerous.   The easy example to see is when it comes to medical issues.  When most people don’t have an educational background in medicine, often it can be hard to differentiate between truth and fake news.  However, this field is also particularly important, as having the wrong information could be physically dangerous and cause medical issues.  For this reason, it’s also great to be informed on how to spot fake news to prevent any harm coming to yourself, or to someone else if you contribute to the misinformation spreading.
+
+                </p>
+               
+                <br />
+                <br />
+                
+               
+                <br />
+                <br />
+            </div>
+        </div>
+    </body>
+
 </body>

@@ -25,6 +25,26 @@ namespace NewsWise.Controllers
         {
             return View();
         }
+
+        public IActionResult Article3()
+        {
+            return View();
+        }
+
+        public IActionResult Article4()
+        {
+            return View();
+        }
+
+        public IActionResult Article5()
+        {
+            return View();
+        }
+
+        public IActionResult Article6()
+        {
+            return View();
+        }
         public IActionResult Importance() 
         {   
             return View();
