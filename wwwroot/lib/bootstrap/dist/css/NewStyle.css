@@ -1,0 +1,32 @@
+﻿body {
+    margin: 0px;
+}
+
+div {
+    margin: 0px;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    font-family: 'Inter-regular';
+    font-size: 20px;
+}
+
+.navbar-collapse {
+    font-family: Poppins-medium;
+    font-size: 11px;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    color: #FFBB00 !important;
+    text-decoration: underline;
+}
+
+.dropdown a:hover {
+    color: #FFBB00 !important;
+    text-decoration: underline;
+}
+
+.dropdown-menu li {
+    display: inline-block;
+}
