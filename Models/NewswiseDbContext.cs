@@ -6,6 +6,9 @@ namespace NewsWise.Models
     {
         public NewswiseDbContext(DbContextOptions<NewswiseDbContext> options) : base(options) { }
 
-        public DbSet<Claimant>
+        public DbSet<Claimant> Claimants { get; set; }
+        public DbSet<Claim> Claims { get; set; }
+        public DbSet<ReviewPublisher> ReviewPublisher { get; set; }
+        public DbSet<ClaimReview> Review { get; set; }
     }
 }

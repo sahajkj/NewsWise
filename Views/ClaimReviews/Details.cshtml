@@ -1,0 +1,121 @@
+﻿@model NewsWise.Models.ClaimReview
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    .SearchResult {
+        background-color: #D9D9D9
+    }
+
+    .SearchBar1 {
+        font-family: 'Poppins-regular';
+        font-size: 12px;
+    }
+
+    .SearchBut1 {
+        font-family: 'Poppins-semibold';
+        font-size: 12px;
+    }
+
+    .Back5 {
+        color: #708090;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+        position: relative;
+        left: 50px;
+    }
+
+    .Nav5 {
+        color: #708090;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+    }
+
+    .ResultTitle {
+        font-family: Poppins-semibold;
+        display: flex;
+        position: relative;
+        left: 100px
+    }
+
+    .Retle1 {
+        color: #FFBB00
+    }
+</style>
+<div class="SearchTitle bg-black" style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
+    <br />
+    <br />
+    <br />
+    <form asp-controller="Home" asp-action="Search" method="get">
+        <div class="searchBody" align=center>
+            <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH FOR THE TRUTH..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
+            <button type="submit" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">Search</button>
+        </div>
+    </form>
+    <br />
+    <br />
+    <br />
+</div>
+<div class="SearchResult" style="margin-left:-15px;margin-right:-15px">
+    <div class="Back5">
+        <p>
+            <a class="Nav5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav5" asp-area="" asp-controller="Home" asp-action="SearchResult">Search Result</a>
+        </p>
+    </div>
+    <div class="ResultTitle">
+        <div class="Retle">
+            <h1>Search Results</h1>
+        </div>
+        <div class="Retle1">
+            <h1>.</h1>
+        </div>
+    </div>
+
+</div>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd class = "col-sm-10">
+            <a href=@Html.DisplayFor(model => model.Url)>Link to Article</a>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReviewDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReviewDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TextualRating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TextualRating)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ClaimReviewId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#searchQuery").autocomplete({
+                source: '/Home/Autofill'
+            });
+        });
+    </script>
+}

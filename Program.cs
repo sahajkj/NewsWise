@@ -1,11 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using NewsWise.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//builder.Services.AddDbContext<NewswiseDbContext>(options => options.UseSqlServer(
-//    builder.Configuration.GetConnectionString("OnboardingConnection")));
+builder.Services.AddDbContext<NewswiseDbContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("NewswiseDb")));
 
 var app = builder.Build();
 

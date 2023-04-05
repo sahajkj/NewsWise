@@ -3,7 +3,6 @@
 }
 
 <style>
-
     .Text1{
         color:white;
         font-family:'Poppins-semibold';
@@ -88,6 +87,7 @@
         top:-10px;
     }
 </style>
+
 <div class="TopicBG body-content p-3 bg-black" style="margin-top:-23px;margin-left:-20px;margin-right:-20px;">
     <div class="displayTheme d-flex">
         <div class="disText col-sm-4 body-content">
@@ -104,12 +104,16 @@
     </div>
     <br/>
     <br/>
-    <form runat="server" method="get" >
-     <div class="searchBody" align=center>
-        <input type="search" class="SearchBar p-3 mt-auto text-center" placeholder="SEARCH FOR THE TRUTH..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
-            <input type="submit" runat="server" asp-area="" asp-controller="Home" asp-action="SearchResult" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">
+    <form asp-controller="Home" asp-action="Search" method="get">
+        <div class="searchBody" align=center>
+            <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH FOR THE TRUTH..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
+            <button type="submit" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">Search</button>
         </div>
     </form>
+    @*<form asp-controller="Home" asp-action="Search" method="get" style="width:70%" method="get">
+        <input type="text" id="searchQuery" name="searchString" class="textfield" placeholder="Search..." style="font-size:100%; width: 90%; height: 60px; background-color: #EBFBEE;padding:20px" />
+        <button type="submit" data-toggle="tooltip" data-placement="bottom" title="search the item" style="background-color: transparent; border: none;"><img src="~/Images/Vector.png" style="height: 60px;" /></button>
+    </form>*@
     <div class="downScroll " align=center>
         <button id="scroll-down-btn"  OnClick="window.scrollTo(0, document.body.scrollHeight);" style="width:45px;height:45px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 2.png" class="downArrow" /></button>
     </div>
@@ -149,3 +153,16 @@
     <br/>
     <br/>
 </div>
+
+@section Scripts{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#searchQuery").autocomplete({
+                source: '/Home/Autofill'
+            });
+        });
+    </script>
+}

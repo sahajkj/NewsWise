@@ -1,0 +1,59 @@
+﻿@model NewsWise.Models.ClaimReview
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ClaimReview</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClaimReviewId" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewDate" class="control-label"></label>
+                <input asp-for="ReviewDate" class="form-control" />
+                <span asp-validation-for="ReviewDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TextualRating" class="control-label"></label>
+                <input asp-for="TextualRating" class="form-control" />
+                <span asp-validation-for="TextualRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClaimId" class="control-label"></label>
+                <select asp-for="ClaimId" class="form-control" asp-items="ViewBag.ClaimId"></select>
+                <span asp-validation-for="ClaimId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewPublisherId" class="control-label"></label>
+                <select asp-for="ReviewPublisherId" class="form-control" asp-items="ViewBag.ReviewPublisherId"></select>
+                <span asp-validation-for="ReviewPublisherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

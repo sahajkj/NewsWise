@@ -1,16 +1,17 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using NewsWise.Models;
 
 namespace NewsWise.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly NewswiseDbContext _context;
+        public HomeController(NewswiseDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
         public IActionResult Definition()
         {
@@ -54,9 +55,53 @@ namespace NewsWise.Controllers
         {
             return View();
         }
-        public IActionResult SearchResult()
+        public async Task<IActionResult> SearchResult(int? reviewId)
         {
-            return View();
+            if (reviewId == null || _context.Review == null)
+            {
+                return NotFound();
+            }
+
+            var claimReview = await _context.Review
+                .FirstOrDefaultAsync(m => m.ClaimReviewId == reviewId);
+            if (claimReview == null)
+            {
+                return NotFound();
+            }
+
+            return View(claimReview);
+        }
+
+        public IActionResult Search(string searchString)
+        {
+            ClaimReview match = null;
+            List<ClaimReview> articles = _context.Review.ToList();
+            foreach (var article in articles)
+            {
+                if (article.Title != null)
+                    if (article.Title.ToUpper().Contains(searchString.ToUpper()))
+                    {
+                        match = article;
+                        break;
+                    }
+            }
+            if (match != null)
+            {
+                return RedirectToAction("Details", "CLaimReviews", new { id = match.ClaimReviewId });
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Autofill()
+        {
+            string prefix = HttpContext.Request.Query["term"].ToString();
+            var articleList = _context.Review.Where(i => i.Title.Contains(prefix) || i.Url.Contains(prefix))
+                     .Select(i => i.Title).ToList().Take(20);
+            return Ok(articleList);
         }
         public IActionResult Existence()
         {
@@ -64,7 +109,7 @@ namespace NewsWise.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Review.ToList());
         }
         public IActionResult SpotTip()
         {

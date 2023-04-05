@@ -2,8 +2,8 @@
 {
     public class Claimant
     {
-        public int claimant_id { get; set; }
-        public string claimant { get; set; }
-        public virtual List<Claim> claims { get; set;}
+        public int ClaimantId { get; set; }
+        public string ClaimantName { get; set; }
+        public virtual ICollection<Claim> Claims { get;}
     }
 }
