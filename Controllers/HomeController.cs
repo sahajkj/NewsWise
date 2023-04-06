@@ -13,6 +13,23 @@ namespace NewsWise.Controllers
         {
             _context = context;
         }
+        public IActionResult Landing()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Landing(string password)
+        {
+            if (password == "ITScamps@FIT5120")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Incorrect password. Please try again.";
+                return View();
+            }
+        }
         public IActionResult Definition()
         {
             return View();
