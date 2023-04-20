@@ -92,15 +92,18 @@ namespace NewsWise.Controllers
         public IActionResult Search(string searchString)
         {
             ClaimReview match = null;
-            List<ClaimReview> articles = _context.Review.ToList();
-            foreach (var article in articles)
+            if (!searchString.IsNullOrEmpty())
             {
-                if (article.Title != null)
-                    if (article.Title.ToUpper().Contains(searchString.ToUpper()))
-                    {
-                        match = article;
-                        break;
-                    }
+                List<ClaimReview> articles = _context.Review.ToList();
+                foreach (var article in articles)
+                {
+                    if (article.Title != null)
+                        if (article.Title.ToUpper().Contains(searchString.ToUpper()))
+                        {
+                            match = article;
+                            break;
+                        }
+                }
             }
             if (match != null)
             {
