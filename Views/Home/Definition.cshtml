@@ -14,17 +14,14 @@
   }
   .DefiContent{
         position: relative;
-        left: 100px;
+        left: 20px;
   }
   .baseInfo{
         font-family:Roboto-regular;
         color: #B3B3B3;
         font-size: 12px;
   }
-  .FakeImg{
-      position: relative;
-      left:100px;
-  }
+
   .Scroll{
       position:relative;
       top:-20px;
@@ -68,16 +65,14 @@
         <h1 class="DefiTitle">Fake News</h1>
         <p class="baseInfo">Not all content online gets verified or checked for quality.  Anyone can write a story or create content <br/>to post online, whether the story is factually accurate or not.   It's important that we make ourselves<br/> aware of this so that we don't also believe it, or even unintentionally spread it ourselves.</p>
         </div>
-        <div class="FakeImg">
-              <img src="~/image/fake.jpg"style="width:400px;height:300px" />
-        </div>
+        
     </div>
     
     <div class="FakeContent" style="margin-right:-12px">
         <div class="Scroll" align=center>
             <button id="scroll-down-btn" runat="server" OnClick="window.scrollTo(0, document.body.scrollHeight);" style="background-color: transparent; border: none;">  <img src="~/image/down-arrow 1.png" class="downArrow" /></button>
         </div>
-    <div class="DefiContent" style="margin-right:250px" align="justify">
+    <div class="DefiContent" style="margin-right:100px" align="justify">
             <div class="Back1" style="margin-top:-40px">
                 <p>
                     <a class="Nav1" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav1" asp-area="" asp-controller="Home" asp-action="Education">Education</a>  >  <a class="Nav1" asp-area="" asp-controller="Home" asp-action="Definition">The definition of fake news</a>
