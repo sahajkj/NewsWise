@@ -4,5 +4,95 @@
 @{
     ViewData["Title"] = "Quiz";
 }
-<h1>@ViewData["Title"]</h1>
-<p>Use this page to start the quiz.</p>
+<style>
+    body {
+        background-color: black;
+    }
+
+    .aboutLearn {
+        font-family: 'Poppins-Medium';
+        font-size: 11px;
+        color: #B3B3B3;
+    }
+
+    .aTopic {
+        position: relative;
+        left: 140px;
+    }
+
+    .AboutTitle {
+        font-family: 'Poppins-semibold';
+        color: #FFBB00;
+        margin-top: -20px;
+    }
+
+    .Back {
+        color: #D9D9D9;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+        position: relative;
+        left: 50px;
+    }
+
+    .aContent {
+        font-family: Roboto-regular;
+        position: relative;
+        left: 75px;
+    }
+
+    .Nav {
+        color: #D9D9D9;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+    }
+    .AnswerQ{
+        font-family: 'Poppins-semibold';
+        background-color: #FFBB00;
+        border: 0px solid;
+        position: relative;
+        right: 20px;
+    }
+</style>
+
+<body>
+    <div class="AboutContent body-content p-1 bg-black" style="margin-top:-23px;margin-left:-15px;margin-right:120px;" align="justify">
+        <br />
+        <div class="aTopic">
+            <p class="aboutLearn">Do a</p>
+            <h2 class="AboutTitle">Quiz.</h2>
+
+        </div>
+        <br />
+        <div class="Back">
+            <p>
+                <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
+            </p>
+        </div>
+        <div class="aContent p-2 text-white">
+            <p>
+
+                This small quiz consists of 8 multiple choice questions designed to test your ability to spot fake news. By taking this quiz, you can improve your knowledge and understanding of the characteristics of fake news and how to identify them. The questions cover a range of topics, including the sources of information, the accuracy of headlines, and the use of persuasive language, etc.
+                <br />
+                <br />
+                After completing the quiz, you will receive feedback on your performance, which can help you identify areas where you may need to improve your knowledge or skills.
+                <br />
+                <br />
+                Overall, this quiz is a useful tool for anyone who wants to enhance their ability to identify and avoid fake news.
+                <br />
+                <br />
+                <form>
+                <div class="StartQ" align=right>
+                    <button class="AnswerQ p-2" asp-area="" asp-controller="Home" asp-action="Article1">START</button>
+                </div>
+                </form>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </p>
+        </div>
+    </div>
+</body>
+
