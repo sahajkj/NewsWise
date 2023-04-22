@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "The importance of identifying fake news";
 }
-<body>
+
     <style>
         .Stip {
             display: flex;
@@ -60,7 +60,7 @@
             font-family: 'Roboto-medium';
         }
     </style>
-    <body>
+
         <div class="Stip bg-black p-3 body-content" style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
             <div class="TipText">
                 <br />
@@ -71,11 +71,11 @@
             </div>
         </div>
         <div class="TipBack" style="margin-right:-12px;">
-            <div class="TipContent" align=justify>
-                <div class="Scroll" align=center>
+            <div class="TipContent col-sm-6" align=justify>
+                @*<div class="Scroll" align=center>
                     <button id="scroll-down-btn" runat="server" OnClick="window.scrollTo(0, document.body.scrollHeight);" style="background-color: transparent; border: none;">  <img src="~/image/down-arrow 1.png" class="downArrow" /></button>
-                </div>
-                <div class="Back3" style="margin-top:-20px">
+                </div>*@
+                <div class="Back3" >
                     <p>
                         <a class="Nav3" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav3" asp-area="" asp-controller="Home" asp-action="Education">Education</a>  >  <a class="Nav3" asp-area="" asp-controller="Home" asp-action="Importance">The importance of identifying fake news</a>
                     </p>
@@ -133,6 +133,5 @@
                 <br />
             </div>
         </div>
-    </body>
 
-</body>
+

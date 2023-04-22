@@ -135,6 +135,11 @@ namespace NewsWise.Controllers
         {
             return View();
         }
+
+        public IActionResult QuizContent()
+        {
+            return View();
+        }
         public IActionResult Education()
         {
             return View();

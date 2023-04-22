@@ -75,7 +75,7 @@
     }
     .readArticle{
         font-family: 'Poppins-semibold';
-        background-color: #FFBB00;
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
         border:0px solid;
         position:relative;
         right:20px;
@@ -92,12 +92,12 @@
            <h1 class="Text1">Stay Wise</h1>
            <h1 class="Text2">See the Truth.</h1>        
            <p class="inText">In a world of misinformation, NEWSWISE is the go-to<br/> platform for identifying and verifying the authenticity<br/> of news stories.</p>
-           <form> 
-           <button type="submit" asp-area="" asp-controller="Home" asp-action="About" class="learn p-3">LEARN MORE</button>
+           <form>
+                <button type="submit" asp-area="" asp-controller="Home" asp-action="About" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border-radius:4px;" class="learn p-3">LEARN MORE</button>
            </form>
         </div>
         <div class="disimg body-content col-sm-4" style="width:300px;height:300px;">
-             <img src="~/image/news.jpg" style="width:400px; height:430px" />
+             <img src="~/image/news.jpg" style="width:400px; height:438px" />
         </div>
     </div>
     <br/>
@@ -105,16 +105,18 @@
     <form asp-controller="Home" asp-action="Search" method="get">
         <div class="searchBody" align=center>
             <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
-            <button type="submit" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">Search</button>
+            <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
         </div>
     </form>
     @*<form asp-controller="Home" asp-action="Search" method="get" style="width:70%" method="get">
         <input type="text" id="searchQuery" name="searchString" class="textfield" placeholder="Search..." style="font-size:100%; width: 90%; height: 60px; background-color: #EBFBEE;padding:20px" />
         <button type="submit" data-toggle="tooltip" data-placement="bottom" title="search the item" style="background-color: transparent; border: none;"><img src="~/Images/Vector.png" style="height: 60px;" /></button>
     </form>*@
-    <div class="downScroll " align=center>
+    @*<div class="downScroll " align=center>
         <button id="scroll-down-btn"  OnClick="window.scrollTo(0, document.body.scrollHeight);" style="width:45px;height:45px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 2.png" class="downArrow" /></button>
-    </div>
+    </div>*@
+    <br />
+    <br />
 </div>
 
 <div class="BodyPar body-content p-5 bg-whtie">
@@ -143,7 +145,7 @@
             <br/>
             <form runat="server">
             <div class="readA" align=right>
-			   <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article1">READ MORE<img src="~/image/vector 7.png" /></button>
+                    <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article1" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
             </div>
             </form>
         </div>
