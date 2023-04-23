@@ -5,8 +5,6 @@
     ViewData["Title"] = "Quiz Content";
 }
 
-<!-- 分页视图 -->
-
 
 <!-- JavaScript -->
 @*<div class="container">
@@ -36,24 +34,24 @@
         </div>
     </div>
 
-    <button onclick="goBack()" class="btn btn-secondary">返回上一页</button>
+    <button onclick="goBack()" class="btn btn-secondary">Previous page</button>
 </div>
 
 <!-- JavaScript -->
 <script>
-    // 获取当前标签页的 data-bs-target 属性
+    
     function getCurrentTarget() {
         var activeTab = document.querySelector('.tab-pane.fade.show.active');
         return activeTab.id;
     }
 
-    // 返回上一标签页
+ 
     function goBack() {
         var currentTarget = getCurrentTarget();
         var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
         for (var i = 0; i < tabLinks.length; i++) {
             if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
-                tabLinks[i-1].click(); // 触发单击事件
+                tabLinks[i-1].click(); 
                 break;
             }
         }
@@ -111,18 +109,20 @@
     .QpageNavItem{
         margin-right:10px;
         margin-left:10px;
+        border-radius: 4px;
+        background-color: #D9D9D9;
     }
 
-    .QpageNavItem1 {
+    .QpageNavItem:hover {
         
-        margin-right: 10px;
-        margin-left: 10px;
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
     }
-    
+
+    .QpageNavItem:focus {
+            background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+     }
  
-    .QTitle{
-        position:relative;
-    }
+
     .checkbox1{
         border:0px solid;
         position: relative;
@@ -140,7 +140,17 @@
         position:relative;
         font-family:Poppins-medium;
     }
+    .Qsig{
+        color: #FFBB00;
+    }
 
+    .SubmitQuestion{
+        position:relative;
+        border: 0px solid;
+        border-radius: 4px;
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        font-family: 'Poppins-semibold';
+    }
     input:checked + label {
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
       
@@ -166,8 +176,8 @@
             </p>
         </div>
     </div>
-        <div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
-            
+    <div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
+            <form method="post">
             <div class="QuizC col-sm-8 bg-white">
              <div class="tab-content">
              <div class="page1 tab-pane fade show active"  id="page1" role="tabpanel" aria-labelledby="page1-tab">
@@ -175,8 +185,10 @@
             <br/>
                 
                 <p class="QTitle" align=left style="margin-left:40px;">
-                    Question 1/8：
+                            Question 1/8
+                        <span class="Qsig">：</span>
                     <br />
+
                     Which of the following is an effective way to spot fake news?
                 </p>
                 <div class="chooseAnswer btn-group-sm" >
@@ -216,11 +228,12 @@
                     <br />
 
                     <p class="QTitle" align=left style="margin-left:40px;">
-                        Question 2/8：
+                            Question 2/8
+                        <span class="Qsig">：</span>
                        
                        <br/>
-                   
-                        Real or false:<br/>
+                    
+                        Real or fake:<br/>
                         Nasa is installing internet on the moon.
 					</p>
 					<img class="col-sm-8" src="~/image/moon1.png" />
@@ -237,12 +250,10 @@
 
                         <input type="radio" class="Q2 p-2 btn-check" name="Two" id="optionS2" value="F" autocomplete="off" />
                         <label for="optionS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
-                            B. False
+                            B. Fake
                         </label>
                         <br />
-                        <br />
-
-                        
+                        <br />                   
                         <br />
                         <br />
                     </div>
@@ -253,16 +264,16 @@
                     <br />
 
                     <p class="QTitle" align=left style="margin-left:40px;">
-                        Question 3/8：
+                            Question 3/8<span class="Qsig">：</span>
 
                         <br />
-
-                        Real or false:<br />
+                    
+                        Real or fake:<br />
                         Nasa is installing internet on the moon.
                     </p>
                     
 
-                    <div class="chooseAnswer1 btn-group-sm">
+                    <div class="chooseAnswer2 btn-group-sm">
                         <br />
 
                         <input type="radio" class="Q3 p-2 btn-check" name="Three" id="optionSS" value="T" autocomplete="off" />
@@ -274,24 +285,204 @@
 
                         <input type="radio" class="Q3 p-2 btn-check" name="Three" id="optionSS2" value="F" autocomplete="off" />
                         <label for="optionSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
-                            B. False
+                            B. Fake
                         </label>
                         <br />
                         <br />
-
-
                         <br />
                         <br />
                     </div>
+                        
+                </div>
+                    <div class="tab-pane fade" id="page4" role="tabpanel" aria-labelledby="page4-tab">
+                        <br />
+                        <br />
 
-                </div>
-                </div>
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 4/8<span class="Qsig">：</span>
+
+                            <br />
+
+                            Real or fake:<br />
+                            Nasa is installing internet on the moon.
+                        </p>
+
+
+                        <div class="chooseAnswer3 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q4 p-2 btn-check" name="Four" id="optionSSS" value="T" autocomplete="off" />
+                            <label for="optionSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Real
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q4 p-2 btn-check" name="Four" id="optionSSS2" value="F" autocomplete="off" />
+                            <label for="optionSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Fake
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page5" role="tabpanel" aria-labelledby="page5-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 5/8<span class="Qsig">：</span>
+
+                            <br />
+
+                            Real or fake:<br />
+                            Nasa is installing internet on the moon.
+                        </p>
+
+
+                        <div class="chooseAnswer4 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q5 p-2 btn-check" name="Five" id="optionSSSS" value="T" autocomplete="off" />
+                            <label for="optionSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Real
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q5 p-2 btn-check" name="Five" id="optionSSSS2" value="F" autocomplete="off" />
+                            <label for="optionSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Fake
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page6" role="tabpanel" aria-labelledby="page6-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 6/8<span class="Qsig">：</span>
+
+                            <br />
+
+                            Real or fake:<br />
+                            Nasa is installing internet on the moon.
+                        </p>
+
+
+                        <div class="chooseAnswer5 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q6 p-2 btn-check" name="Six" id="optionSSSSS" value="T" autocomplete="off" />
+                            <label for="optionSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Real
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q6 p-2 btn-check" name="Six" id="optionSSSSS2" value="F" autocomplete="off" />
+                            <label for="optionSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Fake
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page7" role="tabpanel" aria-labelledby="page7-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 7/8<span class="Qsig">：</span>
+
+                            <br />
+
+                            Real or fake:<br />
+                            Nasa is installing internet on the moon.
+                        </p>
+
+
+                        <div class="chooseAnswer6 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q7 p-2 btn-check" name="Seven" id="optionSSSSSS" value="T" autocomplete="off" />
+                            <label for="optionSSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Real
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q7 p-2 btn-check" name="Seven" id="optionSSSSSS2" value="F" autocomplete="off" />
+                            <label for="optionSSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Fake
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page8" role="tabpanel" aria-labelledby="page8-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 8/8<span class="Qsig">：</span>
+
+                            <br />
+
+                            Real or fake:<br />
+                            Nasa is installing internet on the moon.
+                        </p>
+
+
+                        <div class="chooseAnswer7 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q8 p-2 btn-check" name="Eight" id="optionSSSSSSS" value="T" autocomplete="off" />
+                            <label for="optionSSSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Real
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q8 p-2 btn-check" name="Eight" id="optionSSSSSSS2" value="F" autocomplete="off" />
+                            <label for="optionSSSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Fake
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <button type="submit" class="SubmitQuestion p-2" align=right>Finish Quiz</button>
+                             <br />
+                            <br />
+                        </div>
+
+                    </div>
                 <nav aria-label="Page navigation example">
                 <ul class="QpageNav nav nav-pills justify-content-center" role="tablist">
-                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link btn btn-secondary" href="#1" type="button" data-bs-toggle="tab" onclick=goBack()><</a></li>
-                        <li class="QpageNavItem nav-item" role="presentation"><a  class="nav-link" id="page1-tab" href="#" data-bs-toggle="tab" data-bs-target="#page1" type="button" aria-controls="page1" aria-selected="true">1</a></li>
-                        <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page2-tab" href="#" data-bs-toggle="tab" data-bs-target="#page2" type="button"  aria-controls="page2" aria-selected="true">2</a></li>
-                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page2-tab" href="#" data-bs-toggle="tab" data-bs-target="#page3" type="button" aria-controls="page3" aria-selected="true">3</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link btn btn-secondary" href="#1" type="button"  onclick=goBack()><</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a  class="nav-link" id="page1-tab" href="#" data-bs-toggle="tab" data-bs-target="#page1" type="button" aria-controls="page1" aria-selected="true">1</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page2-tab" href="#" data-bs-toggle="tab" data-bs-target="#page2" type="button"  aria-controls="page2" aria-selected="true">2</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page3-tab" href="#" data-bs-toggle="tab" data-bs-target="#page3" type="button" aria-controls="page3" aria-selected="true">3</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page4-tab" href="#" data-bs-toggle="tab" data-bs-target="#page4" type="button" aria-controls="page4" aria-selected="true">4</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page5-tab" href="#" data-bs-toggle="tab" data-bs-target="#page5" type="button" aria-controls="page5" aria-selected="true">5</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page6-tab" href="#" data-bs-toggle="tab" data-bs-target="#page6" type="button" aria-controls="page6" aria-selected="true">6</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page7-tab" href="#" data-bs-toggle="tab" data-bs-target="#page7" type="button" aria-controls="page7" aria-selected="true">7</a></li>
+                    <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link" id="page8-tab" href="#" data-bs-toggle="tab" data-bs-target="#page8" type="button" aria-controls="page8" aria-selected="true">8</a></li>
                     <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link btn btn-secondary" href="#1" type="button" onclick=goForward()>></a></li>
                     </ul>
                 </nav>
@@ -300,14 +491,16 @@
 
 
             </div>
-
+            </div>
+        </form>
         </div>
         <br/>
         <br />
         <br />
         <br />
+        
     <script>
-        // 当页面加载完成后执行此代码
+        
         function getCurrentTarget() {
         var activeTab = document.querySelector('.tab-pane.fade.show.active');
         return activeTab.id;
@@ -319,7 +512,7 @@
         var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
         for (var i = 0; i < tabLinks.length; i++) {
             if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
-                tabLinks[i-1].click(); // 触发单击事件
+                tabLinks[i-1].click(); 
                 break;
             }
         }
@@ -329,7 +522,7 @@
             var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
             for (var i = 0; i < tabLinks.length; i++) {
                 if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
-                    tabLinks[i +1].click(); // 触发单击事件
+                    tabLinks[i +1].click(); 
                     break;
                 }
             }
