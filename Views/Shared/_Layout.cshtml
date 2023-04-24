@@ -22,17 +22,14 @@
         font-size: 18px;
         border: none;
         outline: none;
-        background-color: #555;
+        background-color: transparent;
         color: white;
         cursor: pointer;
         padding: 15px;
         border-radius: 4px;
     }
 
-        .scrollToTopBtn:hover,
-        .scrollToBottomBtn:hover {
-            
-            background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        
 </style>
 <body>
 <header>
@@ -85,11 +82,11 @@
             @RenderBody()
         </main>
     </div>
-    <button id="scrollToTopBtn" class="scrollToTopBtn">Go to top</button>
-    <button id="scrollToBottomBtn" class="scrollToBottomBtn">Go to bottom</button>
+	<button id="scrollToTopBtn" class="scrollToTopBtn col-sm-2"><img src="~/image/upload.png" class="col-sm-2" /></button>
+	<button id="scrollToBottomBtn" class="scrollToBottomBtn col-sm-2"><img src="~/image/down-arrow.png" class="col-sm-2"/></button>
     <footer class="border-top footer text-muted" style="background-color:#C0C0B4">
-        <div c>
-            &copy; 2023 - NewsWise -
+        <div >
+             - NewsWise -
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -100,13 +97,13 @@
         var scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
 
         window.addEventListener("scroll", function () {
-            if (window.pageYOffset > 100) {
+            if (window.pageYOffset > 250) {
                 scrollToTopBtn.style.display = "block";
             } else {
                 scrollToTopBtn.style.display = "none";
             }
 
-            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 100) {
+            if (window.innerHeight + window.pageYOffset > document.body.offsetHeight - 250) {
                 scrollToBottomBtn.style.display = "none";
             } else {
                 scrollToBottomBtn.style.display = "block";
