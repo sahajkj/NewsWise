@@ -135,7 +135,57 @@ namespace NewsWise.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult SubmitQuiz()
+        {
+            var score = 0;
 
+            // Check answer for Question 1
+            var q1Answer = Request.Form["One"];
+            if (q1Answer == "B")
+            {
+                score += 1;
+            }
+
+            // Check answer for Question 2
+            var q2Answer = Request.Form["Two"];
+            if (q2Answer == "B")
+            {
+                score += 1;
+            }
+            var q3Answer = Request.Form["Three"];
+            if (q3Answer == "C")
+            {
+                score += 1;
+            }
+            // Display result
+            var q4Answer = Request.Form["Four"];
+            if (q4Answer == "B")
+            {
+                score += 1;
+            }
+            var q5Answer = Request.Form["Five"];
+            if (q5Answer == "B")
+            {
+                score += 1;
+            }
+            var q6Answer = Request.Form["Six"];
+            if (q6Answer == "B")
+            {
+                score += 1;
+            }
+            var q7Answer = Request.Form["Seven"];
+            if (q7Answer == "A")
+            {
+                score += 1;
+            }
+            var q8Answer = Request.Form["Eight"];
+            if (q8Answer == "A")
+            {
+                score += 1;
+            }
+            return View("QuizResults",score);
+        }
         public IActionResult QuizContent()
         {
             return View();

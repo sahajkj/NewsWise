@@ -1,0 +1,166 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Your Quiz Results";
+}
+@model int
+<style>
+    body {
+        background-color: black;
+    }
+
+    .aboutLearn {
+        font-family: 'Poppins-Medium';
+        font-size: 11px;
+        color: #B3B3B3;
+    }
+
+    .aTopic {
+        position: relative;
+        left: 140px;
+    }
+
+    .AboutTitle {
+        font-family: 'Poppins-semibold';
+        color: #FFBB00;
+        margin-top: -20px;
+    }
+
+    .Back {
+        color: #D9D9D9;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+        position: relative;
+        left: 50px;
+    }
+
+    .aContent {
+        font-family: Roboto-regular;
+
+    }
+    .QuizR{
+        font-family:Poppins-medium;
+    }
+    .Nav {
+        color: #D9D9D9;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+    }
+
+    .AnswerQ {
+        font-family: 'Poppins-semibold';
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        border: 0px solid;
+        position: relative;
+        right: 20px;
+    }
+    .QpageNavItem{
+        margin-right:10px;
+        margin-left:10px;
+        border-radius: 4px;
+        background-color: #D9D9D9;
+    }
+
+    .QpageNavItem:hover {
+
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+    }
+
+    .QpageNavItem:focus {
+            background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+     }
+
+
+    .checkbox1{
+        border:0px solid;
+        position: relative;
+        color:black;
+        background-color: #D9D9D9;
+
+    }
+    .checkbox1:hover {
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+    }
+
+    .QuestionType{
+        font-size:30px;
+    }
+
+    .QTitle{
+        position:relative;
+        font-family:Poppins-Semibold;
+    }
+    .Qsig{
+        color: #FFBB00;
+    }
+
+  
+    }
+    .Feedback{
+        font-family:Roboto-regular;
+    }
+    .FindArticle{
+        font-family:Poppins-semibold;
+        position:relative;
+        right: 20px;
+        border: 0px solid;
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        border-radius:4px;
+    }
+    .feedB{
+        position:relative;
+        left: 20px;
+    }
+    input:checked + label {
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+
+
+    }
+
+
+</style>
+
+<body>
+
+    <div class="AboutContent body-content p-1 bg-black" style="margin-top:-23px;margin-left:-15px;margin-right:120px;">
+        <br />
+        <div class="aTopic">
+            <p class="aboutLearn">Do a</p>
+            <h2 class="AboutTitle">Quiz.</h2>
+
+        </div>
+        <br />
+        <div class="Back">
+            <p>
+                <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
+            </p>
+        </div>
+    </div>
+    <div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
+        <div class=" QuizR col-sm-8 bg-white">
+            <p class="ResultTitle" align=left>You've Got:</p>
+          <h1 class="ResultScore"><span style="color:#FFBB00">@Model</span> out of 8.</h1>
+          <p class="feedB" align=left>
+              Feedback:
+              <span class="Feedback"></span>
+          </p>
+          <form>
+          <div align=right>
+            <button class="FindArticle p-2"  type="submit" asp-area="" asp-controller="Home" asp-action="Education">FIND OUT MORE RELATED ARTICLES</button>
+            </div>
+            </form>
+            <br />
+            <br />
+            
+        </div>
+        </div>
+        <br/>
+        <br />
+        <br />
+        <br />
+
+    
+
+
+</body>
