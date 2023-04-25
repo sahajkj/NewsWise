@@ -46,13 +46,13 @@
                             <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         
-                        <li class="nav-item  dropdown ">
-                            <a class="nav-link dropdown-toggle  text-white" data-bs-toggle="dropdown" asp-area="" asp-controller="Home" >Education</a>
+                        <li class="nav-item  dropdown"  >
+                            <a class="nav-link dropdown-toggle  text-white"  asp-area="" asp-controller="Home" asp-action="Education">Education</a>
                             
-                            <ul class="dropdown-menu  dropdown-menu-end">
+                            <ul class="dropdown-menu" style="position:relative">
                                 
                                 <li >
-                                    <a class="dropdown-item body-content text-black" asp-area="" asp-controller="Home" asp-action="Definition" style="font-size:11px;text-decoration: underline;">The definition of fake news</a>
+                                    <a class="dropdown-item body-content text-black"  asp-area="" asp-controller="Home" asp-action="Definition" style="font-size:11px;text-decoration: underline;">The definition of fake news</a>
                                     <a class="dropdown-item body-content text-black" asp-area="" asp-controller="Home" asp-action="Existence" style="font-size:11px;text-decoration: underline;">The existence of fake news</a>
                                     <a class="dropdown-item body-content text-black" asp-area="" asp-controller="Home" asp-action="Importance" style="font-size:11px;text-decoration: underline;">The importance of identifying fake news</a>
                                     <a class="dropdown-item body-content text-black" asp-area="" asp-controller="Home" asp-action="SpotTip" style="font-size:11px;text-decoration: underline;">Tips to spot fake news</a>
@@ -117,6 +117,14 @@
         scrollToBottomBtn.addEventListener("click", function () {
             window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
         });
+        $(function () {
+            $('.dropdown').hover(function () {
+                $(this).find('.dropdown-menu').stop(true, true).slideDown(150).addClass('dropdown-menu-end');
+            }, function () {
+                $(this).find('.dropdown-menu').stop(true, true).slideUp(150).removeClass('dropdown-menu-end');
+            });
+        });
+        
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
