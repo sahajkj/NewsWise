@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/NewsWise.styles.css" asp-append-version="true" />
-	<link href="~/lib/bootstrap/dist/css/newstyle.css" rel="stylesheet" />
+	<link href="~/lib/bootstrap/dist/css/newstyle1.css" rel="stylesheet" />
 </head>
 <style>
     .scrollToTopBtn,
@@ -29,6 +29,17 @@
         border-radius: 4px;
     }
 
+    .dropdown-menu {
+        left: auto !important;
+        right: 0;
+    }
+
+       
+        .dropdown-menu.dropdown-menu-end {
+            right: auto !important;
+            left: 0;
+        }
+    
         
 </style>
 <body>
@@ -46,12 +57,12 @@
                             <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         
-                        <li class="nav-item  dropdown"  >
-                            <a class="nav-link dropdown-toggle  text-white"  asp-area="" asp-controller="Home" asp-action="Education">Education</a>
+                        <li class="nav-item  dropdown">
+                            <a class="nav-link dropdown-toggle  text-white" style="position:relative;" asp-area="" asp-controller="Home" asp-action="Education" >Education</a>
                             
-                            <ul class="dropdown-menu" style="position:relative">
+                            <ul class="dropdown-menu" >
                                 
-                                <li >
+                                <li class="d-sm-inline-flex">
                                     <a class="dropdown-item body-content text-black"  asp-area="" asp-controller="Home" asp-action="Definition" style="font-size:11px;text-decoration: underline;">The definition of fake news</a>
                                     <a class="dropdown-item body-content text-black" asp-area="" asp-controller="Home" asp-action="Existence" style="font-size:11px;text-decoration: underline;">The existence of fake news</a>
                                     <a class="dropdown-item body-content text-black" asp-area="" asp-controller="Home" asp-action="Importance" style="font-size:11px;text-decoration: underline;">The importance of identifying fake news</a>
@@ -119,9 +130,9 @@
         });
         $(function () {
             $('.dropdown').hover(function () {
-                $(this).find('.dropdown-menu').stop(true, true).slideDown(150).addClass('dropdown-menu-end');
+                $(this).find('.dropdown-menu').addClass('show');
             }, function () {
-                $(this).find('.dropdown-menu').stop(true, true).slideUp(150).removeClass('dropdown-menu-end');
+                $(this).find('.dropdown-menu').removeClass('show');
             });
         });
         
