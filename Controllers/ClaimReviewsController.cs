@@ -19,11 +19,26 @@ namespace NewsWise.Controllers
         }
 
         // GET: ClaimReviews
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //      return _context.Review != null ? 
+        //                  View(await _context.Review.ToListAsync()) :
+        //                  Problem("Entity set 'NewswiseDbContext.Review'  is null.");
+        //}
+
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Review != null ? 
-                          View(await _context.Review.ToListAsync()) :
-                          Problem("Entity set 'NewswiseDbContext.Review'  is null.");
+            //searchString = "trump";
+            var articles = from a in _context.Review
+                           select a;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(a => a.Title.Contains(searchString)
+                                            || a.Url.Contains(searchString));
+            }
+            articles = articles.OrderByDescending(a => a.ReviewDate);
+            return View(await articles.ToListAsync());
         }
 
         // GET: ClaimReviews/Details/5

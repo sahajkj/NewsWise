@@ -89,31 +89,31 @@ namespace NewsWise.Controllers
             return View(claimReview);
         }
 
-        public IActionResult Search(string searchString)
-        {
-            ClaimReview match = null;
-            if (!searchString.IsNullOrEmpty())
-            {
-                List<ClaimReview> articles = _context.Review.ToList();
-                foreach (var article in articles)
-                {
-                    if (article.Title != null)
-                        if (article.Title.ToUpper().Contains(searchString.ToUpper()))
-                        {
-                            match = article;
-                            break;
-                        }
-                }
-            }
-            if (match != null)
-            {
-                return RedirectToAction("Details", "CLaimReviews", new { id = match.ClaimReviewId });
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-        }
+        //public IActionResult Search(string searchString)
+        //{
+        //    ClaimReview match = null;
+        //    if (!searchString.IsNullOrEmpty())
+        //    {
+        //        List<ClaimReview> articles = _context.Review.ToList();
+        //        foreach (var article in articles)
+        //        {
+        //            if (article.Title != null)
+        //                if (article.Title.ToUpper().Contains(searchString.ToUpper()))
+        //                {
+        //                    match = article;
+        //                    break;
+        //                }
+        //        }
+        //    }
+        //    if (match != null)
+        //    {
+        //        return RedirectToAction("Details", "ClaimReviews", new { id = match.ClaimReviewId });
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //}
 
         [HttpGet]
         public IActionResult Autofill()

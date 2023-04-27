@@ -102,16 +102,19 @@
     </div>
     <br/>
     <br/>
-    <form asp-controller="Home" asp-action="Search" method="get">
+    <@*form asp-controller="Home" asp-action="Search" method="get">
         <div class="searchBody" align=center>
             <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
             <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
         </div>
-    </form>
-    @*<form asp-controller="Home" asp-action="Search" method="get" style="width:70%" method="get">
-        <input type="text" id="searchQuery" name="searchString" class="textfield" placeholder="Search..." style="font-size:100%; width: 90%; height: 60px; background-color: #EBFBEE;padding:20px" />
-        <button type="submit" data-toggle="tooltip" data-placement="bottom" title="search the item" style="background-color: transparent; border: none;"><img src="~/Images/Vector.png" style="height: 60px;" /></button>
     </form>*@
+    <form asp-controller="ClaimReviews" asp-action="Index" method="get">
+    <div class="searchBody" align="center">
+        <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
+        <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
+    </div>
+</form>
+
     @*<div class="downScroll " align=center>
         <button id="scroll-down-btn"  OnClick="window.scrollTo(0, document.body.scrollHeight);" style="width:45px;height:45px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 2.png" class="downArrow" /></button>
     </div>*@
