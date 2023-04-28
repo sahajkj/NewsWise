@@ -1,10 +1,7 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model dynamic
 @{
     ViewData["Title"] = "Your Quiz Results";
 }
-@model int
 <style>
     body {
         background-color: black;
@@ -95,8 +92,6 @@
         color: #FFBB00;
     }
 
-  
-    }
     .Feedback{
         font-family:Roboto-regular;
     }
@@ -114,53 +109,39 @@
     }
     input:checked + label {
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
-
-
     }
-
 
 </style>
 
-<body>
-
-    <div class="AboutContent body-content p-1 bg-black" style="margin-top:-23px;margin-left:-15px;margin-right:120px;">
-        <br />
-        <div class="aTopic">
-            <p class="aboutLearn">Do a</p>
-            <h2 class="AboutTitle">Quiz.</h2>
-
-        </div>
-        <br />
-        <div class="Back">
-            <p>
-                <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
-            </p>
-        </div>
+<div class="AboutContent body-content p-1 bg-black" style="margin-top:-23px;margin-left:-15px;margin-right:120px;">
+    <br />
+    <div class="aTopic">
+        <p class="aboutLearn">Do a</p>
+        <h2 class="AboutTitle">Quiz.</h2>
     </div>
-    <div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
-        <div class=" QuizR col-sm-8 bg-white">
-            <p class="ResultTitle" align=left>You've Got:</p>
-          <h1 class="ResultScore"><span style="color:#FFBB00">@Model</span> out of 8.</h1>
-          <p class="feedB" align=left>
-              Feedback:
-              <span class="Feedback"></span>
-          </p>
-          <form>
-          <div align=right>
-            <button class="FindArticle p-2"  type="submit" asp-area="" asp-controller="Home" asp-action="Education">FIND OUT MORE RELATED ARTICLES</button>
+    <br />
+    <div class="Back">
+        <p>
+            <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
+        </p>
+    </div>
+</div>
+
+<div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
+    <div class=" QuizR col-sm-8 bg-white">
+        <p class="ResultTitle" align=left>You've Got:</p>
+        <h1 class="ResultScore"><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
+        <p class="feedB" align=left>
+            Feedback:
+            <span class="Feedback">@Model.Feedback</span>
+        </p>
+
+        <form method="get" action="@Model.SuggestedPage">
+            <div align=right>
+                <button class="FindArticle p-2" type="submit">SUGGESTED READING</button>
             </div>
-            </form>
-            <br />
-            <br />
-            
-        </div>
-        </div>
-        <br/>
+        </form>
         <br />
         <br />
-        <br />
-
-    
-
-
-</body>
+    </div>
+</div>
