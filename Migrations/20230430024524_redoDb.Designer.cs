@@ -12,8 +12,8 @@ using NewsWise.Models;
 namespace NewsWise.Migrations
 {
     [DbContext(typeof(NewswiseDbContext))]
-    [Migration("20230405182125_allowNulls")]
-    partial class allowNulls
+    [Migration("20230430024524_redoDb")]
+    partial class redoDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
