@@ -131,11 +131,12 @@
     <div class=" QuizR col-sm-8 bg-white">
         <p class="ResultTitle" align=left>You've Got:</p>
         <h1 class="ResultScore"><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
-        <p class="feedB" align="justify" style="margin-right:-20px">
+        <br/>
+        <p class="feedB" align="justify" style="margin-right:40px">
             Feedback:
             <span class="Feedback">@Model.Feedback</span>
         </p>
-
+        <br />
         <form method="get" action="@Model.SuggestedPage">
             <div align=right>
                 <button class="FindArticle p-2" type="submit">SUGGESTED READING</button>
