@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NewsWise.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class redoDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,14 +28,14 @@ namespace NewsWise.Migrations
                 name: "ReviewPublisher",
                 columns: table => new
                 {
-                    Review_PublisherId = table.Column<int>(type: "int", nullable: false)
+                    ReviewPublisherId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Publisher = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Site = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReviewPublisher", x => x.Review_PublisherId);
+                    table.PrimaryKey("PK_ReviewPublisher", x => x.ReviewPublisherId);
                 });
 
             migrationBuilder.CreateTable(
@@ -46,7 +46,7 @@ namespace NewsWise.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClaimantId = table.Column<int>(type: "int", nullable: false),
-                    ClaimDate = table.Column<DateTime>(type: "datetime", nullable: false)
+                    ClaimDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,30 +63,29 @@ namespace NewsWise.Migrations
                 name: "Review",
                 columns: table => new
                 {
-                    Claim_ReviewId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClaimReviewId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Review_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Textual_Rating = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ClaimId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Review_PublisherId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ClaimId1 = table.Column<int>(type: "int", nullable: false),
-                    Review_PublisherId1 = table.Column<int>(type: "int", nullable: false)
+                    ReviewDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TextualRating = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClaimId = table.Column<int>(type: "int", nullable: false),
+                    ReviewPublisherId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Review", x => x.Claim_ReviewId);
+                    table.PrimaryKey("PK_Review", x => x.ClaimReviewId);
                     table.ForeignKey(
-                        name: "FK_Review_Claims_ClaimId1",
-                        column: x => x.ClaimId1,
+                        name: "FK_Review_Claims_ClaimId",
+                        column: x => x.ClaimId,
                         principalTable: "Claims",
                         principalColumn: "ClaimId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Review_ReviewPublisher_Review_PublisherId1",
-                        column: x => x.Review_PublisherId1,
+                        name: "FK_Review_ReviewPublisher_ReviewPublisherId",
+                        column: x => x.ReviewPublisherId,
                         principalTable: "ReviewPublisher",
-                        principalColumn: "Review_PublisherId",
+                        principalColumn: "ReviewPublisherId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -96,14 +95,14 @@ namespace NewsWise.Migrations
                 column: "ClaimantId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Review_ClaimId1",
+                name: "IX_Review_ClaimId",
                 table: "Review",
-                column: "ClaimId1");
+                column: "ClaimId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Review_Review_PublisherId1",
+                name: "IX_Review_ReviewPublisherId",
                 table: "Review",
-                column: "Review_PublisherId1");
+                column: "ReviewPublisherId");
         }
 
         /// <inheritdoc />
