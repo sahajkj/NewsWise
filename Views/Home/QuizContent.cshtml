@@ -456,24 +456,25 @@
 
 
                         <div class="chooseAnswer6 d-sm-inline-flex btn-group-sm">
-                            <br />
 
-                            
-                             <div class="Q7Answer1 col-sm-6" >
+                            <div class="Q7Answer1 col-sm-6">
                                 <img class="col-sm-8" src="~/image/q7a.png" />
+                                <div class="choose7A">
                                 <input type="radio" class="Q7 p-2 btn-check" data-question-id="7" name="Seven" id="optionSSSSSS" value="A" autocomplete="off" required />
-                            <label for="optionSSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
-                                A
-                            </label>
+                                <label for="optionSSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                    A
+                                </label>
+                                </div>
                             </div>
                             <div class="Q7Answer1 col-sm-6">
-                                <img class="col-sm-8" src="~/image/Q7B.png" />
+                                <img class="col-sm-8" src="~/image/q7b.png" />
+                                <div class="choose7B">
                                 <input type="radio" class="Q7 p-2 btn-check" data-question-id="7" name="Seven" id="optionSSSSSS2" value="B" autocomplete="off" required />
-                            <label for="optionSSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
-                                B
-                            </label>
+                                <label for="optionSSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                    B
+                                </label>
+                                </div>
                             </div>
-                            
                         </div>
                         <br />
                         <br />
@@ -495,21 +496,25 @@
 
 
                         <div class="chooseAnswer7 d-sm-inline-flex btn-group-sm">
-                            <br />
 
-                            <div class="Q7Answer1 col-sm-6">
+                            <div class="Q8Answer1 col-sm-6">
                                 <img class="col-sm-8" src="~/image/q8a.png" />
+                             <div class="choose8A">
                                 <input type="radio" class="Q8 p-2 btn-check" data-question-id="8" name="Eight" id="optionSSSSSSS" value="A" autocomplete="off" required />
                             <label for="optionSSSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
                                 A
                             </label>
+                                </div>
                             </div>
-                            <div class="Q7Answer1 col-sm-6">
+                            <div class="Q8Answer1 col-sm-6">
+                                
                                 <img class="col-sm-8" src="~/image/q8b.png" />
+                                <div class="choose8B">
                                 <input type="radio" class="Q8 p-2 btn-check" data-question-id="8"  name="Eight" id="optionSSSSSSS2" value="B" autocomplete="off" required/>
                             <label for="optionSSSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
                                 B
                             </label>
+                                </div>
                             </div>
                             </div>
                             <br />
@@ -517,9 +522,10 @@
                             <br />
                             <br />
                         <button type="submit" asp-area="" asp-controller="Home" asp-action="SubmitQuiz" id="quizsub" class="SubmitQuestion p-2" align=right d>Finish Quiz</button>
-                        <p id="error" style="color:red; display:none;">Please answer all questions</p>
+                       
                              <br />
                             <br />
+
                         
 
                     </div>
@@ -622,9 +628,10 @@
                         break;
                     }
                 }
+                
             });
         });
+       
     </script>
     
-
 </body>
