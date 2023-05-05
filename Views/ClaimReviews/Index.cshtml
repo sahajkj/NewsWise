@@ -4,6 +4,9 @@
     ViewData["Title"] = "Search Result";
 }
 <style>
+    .NewsTitle {
+        font-family:Poppins-semibold;
+    }
     .SearchResult {
         background-color: #D9D9D9
     }
@@ -40,9 +43,30 @@
     }
 
     .Retle1 {
-        color: #FFBB00
+        color: #FFBB00;
+    }
+    .Node{
+        font-family:Poppins-semibold;
+        
+        color: #FFBB00;
+    }
+    .View{
+        font-family:Roboto-regular;
+    }
+    .Link{
+        font-family: Roboto-regular;
+        color: #FFBB00;
+    }
+    .Rating{
+         font-family:Poppins-semibold;
+    }
+    .RatingStatus{
+        font-family:Poppins-semibold;
+        color: #FFBB00;
+        font-size:25px;
     }
 </style>
+<script></script>
 <div class="SearchTitle bg-black" style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
     <br />
     <br />
@@ -74,51 +98,48 @@
     </div>
     <div class="container bg-white">
         <hr />
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Title)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Url)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ReviewDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TextualRating)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
+        @{
+            int count = 0;
+        }
+         @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </td>
-                        <td>
-                            @*@Html.DisplayFor(modelItem => item.Url)*@
-                            <a href=@Html.DisplayFor(modelItem => item.Url)>Link to Article</a>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ReviewDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TextualRating)
-                        </td>
-                        @*<td>
-                            <a asp-action="Edit" asp-route-id="@item.ClaimReviewId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.ClaimReviewId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ClaimReviewId">Delete</a>
-                        </td>*@
-                    </tr>
+            count++;
+            <span class="Node">.</span><span class="NewsTitle fs-4">@Html.DisplayFor(modelItem => item.Title)</span>
+                    <br/>
+            <span class="View">
+                &nbsp;Review Date: @Html.DisplayFor(modelItem => item.ReviewDate)
+            </span>
+
+            <br />
+
+            <span class="Rating fs-4">&nbsp;Rating: </span>
+
+
+            <span class="RatingStatus">@Html.DisplayFor(modelItem => item.TextualRating)</span>
+            <br />
+                <span class="View">&nbsp;View this article: </span>
+
+
+                <a class="Link" href=@Html.DisplayFor(modelItem => item.Url)>@Html.DisplayFor(modelItem => item.Title)</a>
+
+                
+               
+                if(count==50){
+                    break;
                 }
-            </tbody>
-        </table>
+            
+            <br/>
+            <br />
+            <br />
+            <br />
+        }
+          }
+            
     </div>
+    <br/>
+    <br />
+    <br />
+    <br />
 </div>
 
 
