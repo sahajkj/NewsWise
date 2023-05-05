@@ -63,7 +63,7 @@
     .RatingStatus{
         font-family:Poppins-semibold;
         color: #FFBB00;
-        font-size:25px;
+        font-size:20px;
     }
 </style>
 <script></script>
@@ -98,6 +98,7 @@
     </div>
     <div class="container bg-white">
         <hr />
+        <div class="col-sm-8">
         @{
             int count = 0;
         }
@@ -106,7 +107,7 @@
             count++;
             <span class="Node">.</span>
 
-            <span class="NewsTitle fs-4">@Html.DisplayFor(modelItem => item.Title)</span>
+            <span class="NewsTitle fs-5">@Html.DisplayFor(modelItem => item.Title)</span>
             <br />
             <span class="View">
                 &nbsp;Review Date: @Html.DisplayFor(modelItem => item.ReviewDate)
@@ -115,7 +116,7 @@
             <span class="View">&nbsp;View this article: </span>
             <a class="Link" href=@Html.DisplayFor(modelItem => item.Url)>@Html.DisplayFor(modelItem => item.Title)</a>
             <br />
-            <span class="Rating fs-4">&nbsp;Rating: </span>
+            <span class="Rating fs-5">&nbsp;Rating: </span>
             <span class="RatingStatus">@Html.DisplayFor(modelItem => item.TextualRating)</span>
             <br />
             <br />
@@ -123,7 +124,8 @@
             {
                 <hr />
             }
-        }    
+        }
+        </div>
     </div>
     <br/>
     <br />
