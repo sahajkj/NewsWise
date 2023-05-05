@@ -42,6 +42,21 @@
     .Retle1 {
         color: #FFBB00
     }
+
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    td, th {
+        padding: 8px;
+        word-wrap: break-word;
+    }
+
 </style>
 <div class="SearchTitle bg-black" style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
     <br />
@@ -78,16 +93,16 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Title)
+                        Claim
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Url)
+                        Fact Check Article
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ReviewDate)
+                        Review Date
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.TextualRating)
+                        Fact Check Rating
                     </th>
                     <th></th>
                 </tr>
