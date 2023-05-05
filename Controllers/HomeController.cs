@@ -238,6 +238,7 @@ namespace NewsWise.Controllers
             var feedbackJson = await response.Content.ReadAsStringAsync();
             var feedback = JsonConvert.DeserializeObject<dynamic>(feedbackJson);
             string SuggestedPage = feedback["Suggested Page"];
+            string quizFeedback = feedback["Feedback"];
             switch (SuggestedPage)
             {
                 case "The definition of fake news":
@@ -258,7 +259,7 @@ namespace NewsWise.Controllers
             }
 
             // Display result and feedback
-            return View("QuizResults", new { Score = score, Feedback = feedback.Feedback, SuggestedPage });
+            return View("QuizResults", new { Score = score, Feedback = quizFeedback.Replace("\n", "<br><br>"), SuggestedPage });
 
 
             //return View("QuizResults",score);

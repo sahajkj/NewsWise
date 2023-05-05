@@ -134,12 +134,12 @@
         <br/>
         <p class="feedB" align="justify" style="margin-right:40px">
             Feedback:
-            <span class="Feedback">@Model.Feedback</span>
+            <span class="Feedback">@Html.Raw(@Model.Feedback)</span>
         </p>
         <br />
         <form method="get" action="@Model.SuggestedPage">
             <div align=right>
-                <button class="FindArticle p-2" type="submit">SUGGESTED READING</button>
+                <button class="FindArticle p-2" type="submit">@Model.SuggestedPage</button>
             </div>
         </form>
         <br />
