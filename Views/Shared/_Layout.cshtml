@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/NewsWise.styles.css" asp-append-version="true" />
-	<link href="~/lib/bootstrap/dist/css/newstyle1.css" rel="stylesheet" />
+	<link href="~/lib/bootstrap/dist/css/stylesheet.css" rel="stylesheet" />
 </head>
 <style>
     .scrollToTopBtn,
@@ -93,8 +93,11 @@
             @RenderBody()
         </main>
     </div>
+    <div class="scroll">
+        
 	<button id="scrollToTopBtn" class="scrollToTopBtn col-sm-2"><img src="~/image/upload.png" style="width:30px;height:30px;"  class="col-sm-2" /></button>
     <button id="scrollToBottomBtn" class="scrollToBottomBtn col-sm-2"><img src="~/image/down-arrow.png" style="width:30px;height:30px;" class="col-sm-2" /></button>
+        </div>
     <footer class="border-top footer text-muted" style="background-color:#C0C0B4">
         <div >
              - NewsWise -
@@ -106,7 +109,7 @@
     <script>
         var scrollToTopBtn = document.getElementById("scrollToTopBtn");
         var scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
-
+        
         window.addEventListener("scroll", function () {
             
             if (window.pageYOffset > 100 && scrollToBottomBtn.style.display == "none") {
