@@ -259,7 +259,7 @@ namespace NewsWise.Controllers
             }
 
             // Display result and feedback
-            return View("QuizResults", new { Score = score, Feedback = quizFeedback.Replace("\n", "<br><br>"), SuggestedPage });
+            return View("QuizResults", new { Score = score, Feedback = quizFeedback.Replace("\n", "<br><br>"), SuggestedPage, SuggestedText = feedback["Suggested Page"] });
 
 
             //return View("QuizResults",score);
