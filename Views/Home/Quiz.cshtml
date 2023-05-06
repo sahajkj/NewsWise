@@ -37,7 +37,7 @@
     .aContent {
         font-family: Roboto-regular;
         position: relative;
-        left: 75px;
+        
     }
 
     .Nav {
@@ -47,10 +47,14 @@
     }
     .AnswerQ{
         font-family: 'Poppins-semibold';
-        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        background-color:transparent;
         border: 0px solid;
-        position: relative;
-        right: 20px;
+        
+        color: #FFBB00;
+    }
+    .Start{
+        font-family: 'Poppins-semibold';
+        color: #FFBB00;
     }
 </style>
 
@@ -68,32 +72,31 @@
                 <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
             </p>
         </div>
-        <div class="aContent p-2 text-white">
-            
-            <p>
+        
+    </div>
+    <div class="aContent  p-2 " style="background-color:#F2F4F4; margin-left:-10px;margin-right:-10px" align=center>
+        <div class="aContent col-sm-10  p-2 " align=center style="background-color:#F2F4F4">
+        <img class="col-sm-8" style="width:100%" src="~/image/quizstart.png" />
+        <br />
+        <br />
+        <br />
+        <h1 class="Start">Quiz for test your fake news detection skills!</h1>
+            <br />
+            <br />
+            <br />
+        <form>
+            <div class="StartQ" >
+                <button class="AnswerQ p-3" asp-area="" asp-controller="Home" asp-action="QuizContent" style="border-radius:4px;"><img style="height:100px;width:100px;" src="~/image/play 1.png" /><br/><h4>Start</h4></button>
+            </div>
+        </form>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-                This small quiz consists of 8 multiple choice questions designed to test your ability to spot fake news. By taking this quiz, you can improve your knowledge and understanding of the characteristics of fake news and how to identify them. The questions cover a range of topics, including the sources of information, the accuracy of headlines, and the use of persuasive language, etc.
-                <br />
-                <br />
-                After completing the quiz, you will receive feedback on your performance, which can help you identify areas where you may need to improve your knowledge or skills.
-                <br />
-                <br />
-                Overall, this quiz is a useful tool for anyone who wants to enhance their ability to identify and avoid fake news.
-                <br />
-                <br />
-                <form>
-                <div class="StartQ" align=right>
-                    <button class="AnswerQ p-3" asp-area="" asp-controller="Home" asp-action="QuizContent" style="border-radius:4px;">START</button>
-                </div>
-                </form>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </p>
-        </div>
+    </div>
     </div>
 </body>
 
