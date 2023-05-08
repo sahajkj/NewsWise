@@ -3,160 +3,375 @@
 }
 
 <style>
-    .Text1{
-        color:white;
-        font-family:'Poppins-semibold';
-       
+    .Text1 {
+        color: white;
+        font-family: 'Poppins-semibold';
     }
-    .Text2{
+
+    .Text2 {
         color: #FFBB00;
-        font-family:'Poppins-semibold';
+        font-family: 'Poppins-semibold';
     }
-    .disText{
+
+    .disText {
         position: relative;
-        left:100px;
+        left: 150px;
     }
-    .disimg{
-        margin-left:250px;
-        margin-right:200px;
-        margin-top:-35px;
-        
+
+    .disimg {
+        margin-left: 200px;
+        margin-top: -35px;
     }
-    .inText{
+
+    .inText {
         font-family: 'Roboto-regular';
         color: #B3B3B3;
         font-size: 11px;
     }
-    .learn{
+
+    .learn {
         background-color: #FFBB00;
-        font-family:'Poppins-semibold';
-        font-size:12px;
+        font-family: 'Poppins-semibold';
+        font-size: 12px;
     }
-    .SearchBar{
-        font-family:'Poppins-regular';
-        font-size:12px;
+
+    .SearchBar {
+        font-family: 'Poppins-regular';
+        font-size: 12px;
     }
-    .SearchBut{
-        font-family:'Poppins-semibold';
-        font-size:12px;
+
+    .SearchBut {
+        font-family: 'Poppins-semibold';
+        font-size: 12px;
     }
-    .searchBody{
-        margin-top:-30px;
+
+    .searchBody {
+        margin-top: -30px;
     }
-    .article{
-        display:flex;
+
+    .article {
+        display: flex;
     }
-    .ArtiTitle{
-        font-family:'Poppins-semibold';
-        color:black;
+
+    .ArtiTitle {
+        font-family: 'Poppins-semibold';
+        color: black;
     }
-    .End{
-        font-family:'Poppins-semibold';
+
+    .End {
+        font-family: 'Poppins-semibold';
         color: #FFBB00;
     }
-    
-    .articleImage{
-        margin-top:20px;
+
+    .articleImage {
+        margin-top: 20px;
     }
-    .ArtiName{
-        font-family:'Poppins-semibold';
+
+    .ArtiName {
+        font-family: 'Poppins-semibold';
     }
-    .ArticleContent{
-        margin-left:50px;
-        margin-top:10px;
+
+    .ArticleContent {
+        margin-left: 50px;
+        margin-top: 10px;
     }
-    .AntiIcon{
-        position:relative;
-        right:50px;
+
+    .AntiIcon {
+        position: relative;
+        right: 50px;
     }
-    .content1{
-        font-family:'Roboto-regular';
+
+    .content1 {
+        font-family: 'Roboto-regular';
         font-size: 13px;
     }
-    .readArticle{
+
+    .readArticle {
         font-family: 'Poppins-semibold';
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
-        border:0px solid;
-        position:relative;
-        right:20px;
-    }
-    .downScroll{
+        border: 0px solid;
         position: relative;
-        top:-10px;
+        right: 20px;
+    }
+
+    .downScroll {
+        position: relative;
+        top: -10px;
+    }
+
+    .BodyPar {
+        display: none;
     }
 </style>
 
 <div class="TopicBG body-content p-3 bg-black" style="margin-top:-23px;margin-left:-20px;margin-right:-20px;">
     <div class="displayTheme d-flex">
         <div class="disText col-sm-4 body-content">
-           <h1 class="Text1">Stay Wise</h1>
-           <h1 class="Text2">See the Truth.</h1>        
-           <p class="inText">In a world of misinformation, NEWSWISE is the go-to<br/> platform for identifying and verifying the authenticity<br/> of news stories.</p>
-           <form>
+            <br />
+            <br />
+            <br />
+            <h1 class="Text1">Stay Wise</h1>
+            <h1 class="Text2">See the Truth.</h1>
+            <p class="inText">In a world of misinformation, NEWSWISE is the go-to<br /> platform for identifying and verifying the authenticity<br /> of news stories.</p>
+            <form>
                 <button type="submit" asp-area="" asp-controller="Home" asp-action="About" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border-radius:4px;" class="learn p-3">LEARN MORE</button>
-           </form>
+            </form>
         </div>
         <div class="disimg body-content col-sm-4" style="width:300px;height:300px;">
-             <img src="~/image/news.jpg" style="width:500px; height:438px" />
+            <img src="~/image/news.jpg" style="width:500px; height:475px" />
         </div>
     </div>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
     @*<form asp-controller="Home" asp-action="Search" method="get">
-        <div class="searchBody" align=center>
+    <div class="searchBody" align=center>
+    <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
+    <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
+    </div>
+    </form>*@
+    <form asp-controller="ClaimReviews" asp-action="Index" method="get">
+        <div class="searchBody" align="center">
             <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
             <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
         </div>
-    </form>*@
-    <form asp-controller="ClaimReviews" asp-action="Index" method="get">
-    <div class="searchBody" align="center">
-        <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
-        <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
-    </div>
-</form>
+    </form>
 
     @*<div class="downScroll " align=center>
-        <button id="scroll-down-btn"  OnClick="window.scrollTo(0, document.body.scrollHeight);" style="width:45px;height:45px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 2.png" class="downArrow" /></button>
+    <button id="scroll-down-btn"  OnClick="window.scrollTo(0, document.body.scrollHeight);" style="width:45px;height:45px;background-color: transparent; border: none;">  <img src="~/image/down-arrow 2.png" class="downArrow" /></button>
     </div>*@
-    <br />
+
     <br />
 </div>
+<br />
+<br />
+<div class="Searchdiscribe" align=center style="margin-left:100px;margin-right:130px;">
+    <p class="discribeT" style="font-family:Roboto-regular; font-size:15px;" align=justify>NEWSWISE is a completely free educational website dedicated to helping teenagers spot fake news, gain more knowledge about spotting fake news, and raise awareness. You only need to enter some keywords in our search box, and we will provide you with relevant article titles and give corresponding true and false ratings.</p>
+</div>
+<div class="Example" id="Contain">
+    <div class="BodyPar body-content p-5 bg-whtie" id="div1">
+        <div class="article">
+            <div class="ArtiTitle">
+                <h1>
+                    featured example
 
-<div class="BodyPar body-content p-5 bg-whtie">
-    <div class="article">
-        <div class="ArtiTitle">
-            <h1>Fake news of the day</h1>
+                </h1>
             </div>
             <div class="End">
                 <h1>.</h1>
-        </div>
-    </div>
-    <div class="articleText d-sm-inline-flex">
-        <div class="articleImage">
-			<img src="~/image/Article1.png" style="width:295px;height:290px;"/>
-        </div>
-		<div class="ArticleContent">
-            <div class="AntiIcon" align=right>
-                <img src="~/image/dec.png"  />
-			</div>
-            <img src="~/image/sep.png" />
-            <h3 class="ArtiName">Bill Murray Kicks Off Presidential Campaign South Carolina</h3>
-            <p class="content1">
-                The well-known comedian and actor Bill Murray has declared his intention to run for president of the United States, <br />
-                and he will launch his campaign in the state of South Carolina, where he was born and raised.
-            </p>
-            <br/>
-            <form runat="server">
-            <div class="readA" align=right>
-                    <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article1" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
             </div>
-            </form>
         </div>
+        <div class="articleText d-sm-inline-flex">
+            <div class="articleImage">
+                <img src="~/image/Article1.png" style="width:295px;height:290px;" />
+            </div>
+            <div class="ArticleContent">
+                <div class="AntiIcon" align=right>
+                    <img src="~/image/dec.png" />
+                </div>
+                <img src="~/image/sep.png" />
+                <h3 class="ArtiName">Bill Murray Kicks Off Presidential Campaign South Carolina</h3>
+                <p class="content1">
+                    The well-known comedian and actor Bill Murray has declared his intention to run for president of the United States, <br />
+                    and he will launch his campaign in the state of South Carolina, where he was born and raised.
+                </p>
+                <br />
+                <form runat="server">
+                    <div class="readA" align=right>
+                        <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article1" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
     </div>
-    <br/>
-    <br/>
-</div>
+    <div class="BodyPar body-content p-5 bg-whtie" id="div2">
+        <div class="article">
+            <div class="ArtiTitle">
+                <h1>
+                    featured example
 
+                </h1>
+            </div>
+            <div class="End">
+                <h1>.</h1>
+            </div>
+        </div>
+        <div class="articleText d-sm-inline-flex">
+            <div class="articleImage">
+                <img src="~/image/Article2.png" style="width:295px;height:290px;" />
+            </div>
+            <div class="ArticleContent">
+                <div class="AntiIcon" align=right>
+                    <img src="~/image/dec.png" />
+                </div>
+                <img src="~/image/sep.png" />
+                <h3 class="ArtiName">People are Conservative due to poor education</h3>
+                <p class="content1">
+                    TClaim - Chris Minns made a Tweet suggesting people who vote conservative do so because they have a lower education.<br />
+                    Status - False
+                </p>
+                <br />
+                <form runat="server">
+                    <div class="readA" align=right>
+                        <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article2" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="BodyPar body-content p-5 bg-whtie" id="div3">
+        <div class="article">
+            <div class="ArtiTitle">
+                <h1>
+                    featured example
+
+                </h1>
+            </div>
+            <div class="End">
+                <h1>.</h1>
+            </div>
+        </div>
+        <div class="articleText d-sm-inline-flex">
+            <div class="articleImage">
+                <img src="~/image/Article 3.png" style="width:295px;height:290px;" />
+            </div>
+            <div class="ArticleContent">
+                <div class="AntiIcon" align=right>
+                    <img src="~/image/dec.png" />
+                </div>
+                <img src="~/image/sep.png" />
+                <h3 class="ArtiName">Australians Protest in support of Indonesia over reef dispute</h3>
+                <p class="content1">
+                    Claim - Australians staged a protest demanding that the Australian government reconciles a reef dispute with Indonesia. <br />
+                    Status - False
+                </p>
+                <br />
+                <form runat="server">
+                    <div class="readA" align=right>
+                        <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article3" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="BodyPar body-content p-5 bg-whtie" id="div4">
+        <div class="article">
+            <div class="ArtiTitle">
+                <h1>
+                    featured example
+
+                </h1>
+            </div>
+            <div class="End">
+                <h1>.</h1>
+            </div>
+        </div>
+        <div class="articleText d-sm-inline-flex">
+            <div class="articleImage">
+                <img src="~/image/Article4.png" style="width:295px;height:290px;" />
+            </div>
+            <div class="ArticleContent">
+                <div class="AntiIcon" align=right>
+                    <img src="~/image/dec.png" />
+                </div>
+                <img src="~/image/sep.png" />
+                <h3 class="ArtiName">Australian Beach requiring joggers to wear helmets</h3>
+                <p class="content1">
+                    Claim - A photo posted on Facebook of a sign at an Australian beach instructing that joggers must wear a helmet <br/>
+                      Status - False
+                </p>
+                <br />
+                <form runat="server">
+                    <div class="readA" align=right>
+                        <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article4" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="BodyPar body-content p-5 bg-whtie" id="div5">
+        <div class="article">
+            <div class="ArtiTitle">
+                <h1>
+                    featured example
+
+                </h1>
+            </div>
+            <div class="End">
+                <h1>.</h1>
+            </div>
+        </div>
+        <div class="articleText d-sm-inline-flex">
+            <div class="articleImage">
+                <img src="~/image/Article5.png" style="width:295px;height:290px;" />
+            </div>
+            <div class="ArticleContent">
+                <div class="AntiIcon" align=right>
+                    <img src="~/image/dec.png" />
+                </div>
+                <img src="~/image/sep.png" />
+                <h3 class="ArtiName">Australia recommends against minors getting COVID-19 vaccination.</h3>
+                <p class="content1">
+                    Claim - The Australian Technical Advisory Group on Immunisation recommends against any minors from receiving the COVID-19 vaccination.<br />
+                    Status - Misleading
+                </p>
+                <br />
+                <form runat="server">
+                    <div class="readA" align=right>
+                        <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article5" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="BodyPar body-content p-5 bg-whtie" id="div6">
+        <div class="article">
+            <div class="ArtiTitle">
+                <h1>
+                    featured example
+
+                </h1>
+            </div>
+            <div class="End">
+                <h1>.</h1>
+            </div>
+        </div>
+        <div class="articleText d-sm-inline-flex">
+            <div class="articleImage">
+                <img src="~/image/Article6.png" style="width:295px;height:290px;" />
+            </div>
+            <div class="ArticleContent">
+                <div class="AntiIcon" align=right>
+                    <img src="~/image/dec.png" />
+                </div>
+                <img src="~/image/sep.png" />
+                <h3 class="ArtiName">Images posted of Donald Trump’s arrest</h3>
+                <p class="content1">
+                    Claim - A photo posted on Facebook of a sign at an Australian beach instructing that joggers must wear a helmet. <br />
+                    Status - False
+                </p>
+                <br />
+                <form runat="server">
+                    <div class="readA" align=right>
+                        <button class="readArticle p-2" asp-area="" asp-controller="Home" asp-action="Article6" style="border-radius:4px;">READ MORE<img src="~/image/vector 7.png" /></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</div>
 @section Scripts{
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -166,6 +381,17 @@
             $("#searchQuery").autocomplete({
                 source: '/Home/Autofill'
             });
+        });
+        var randomIndex = Math.floor(Math.random() * 6);
+
+        // 显示随机的 div，隐藏其他 div
+        var divs = document.querySelectorAll('.BodyPar');
+        divs.forEach(function (div, index) {
+            if (index === randomIndex) {
+                div.style.display = 'block';
+            } else {
+                div.style.display = 'none';
+            }
         });
     </script>
 }

@@ -4,5 +4,121 @@
 @{
     ViewData["Title"] = "News Spotter";
 }
-<h1>@ViewData["Title"]</h1>
-<p>Use this page to display the function which is used to recognize the fake news.</p>
+<style>
+    body {
+        background-color: black;
+    }
+
+    .aboutLearn {
+        font-family: 'Poppins-Medium';
+        font-size: 11px;
+        color: #B3B3B3;
+    }
+
+    .aTopic {
+        position: relative;
+        left: 140px;
+    }
+
+    .AboutTitle {
+        font-family: 'Poppins-semibold';
+        color: #FFBB00;
+        margin-top: -20px;
+    }
+
+    .Back {
+        color: #D9D9D9;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+        position: relative;
+        left: 50px;
+    }
+
+    .aContent {
+        font-family: Roboto-regular;
+        position: relative;
+    }
+
+    .Nav {
+        color: #D9D9D9;
+        font-size: 10px;
+        font-family: 'Roboto-medium';
+    }
+
+    .AnswerQ {
+        font-family: 'Poppins-semibold';
+        background-color: transparent;
+        border: 0px solid;
+        color: #FFBB00;
+    }
+
+    .Start {
+        font-family: 'Poppins-semibold';
+        color: #FFBB00;
+    }
+    .download{
+        font-family: 'Poppins-semibold';
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        border: 0px solid;
+        
+    }
+
+    .DownloadExtention{
+        position:relative;
+        
+    }
+</style>
+
+<body>
+    <div class="AboutContent body-content p-1 bg-black " style="margin-top:-23px;margin-left:-15px;margin-right:120px;" align="justify">
+        <br />
+        <div class="d-sm-flex">
+        <div class="aTopic col-sm-6">
+                <p class="aboutLearn">Try our</p>
+                <br/>
+            <h2 class="AboutTitle">News Spotter.</h2>
+                
+        </div>
+        <div class="DownloadExtention col-sm-6" align=right>
+            <br/>
+            <br />
+        <form>
+            <button type="submit" class="download p-2">DOWNLOAD NOW</button>
+        </form>
+        </div>
+        </div>
+        <br />
+      
+        <div class="Back">
+            <p>
+                <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="NewsSpotter">News Spotter</a>
+            </p>
+        </div>
+
+    </div>
+    <div class="aContent  p-2 " style="background-color:#F2F4F4; margin-left:-10px;margin-right:-10px" align=center>
+        <div class="aContent col-sm-10  p-2 " align=justify style="background-color:#F2F4F4">
+            <h2 style="font-family:Poppins-semibold;">Overview<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
+            <p style="font-family:Roboto-regular">Our Chrome extension helps you analyze the true and false ratings of news articles and provides you with relevant verification articles when you browse webpages. With the rise of fake news and misinformation, it can be difficult to determine what information is accurate and trustworthy. Our extension aims to assist you in making informed decisions by providing you with the necessary tools to verify the credibility of news articles.</p>
+            <h4>Features</h4>
+            <ul style="font-family:Roboto-regular">
+                <li>True and False Ratings: Our extension analyzes the news articles that you browse and provides you with a rating of its accuracy. This rating is based on various factors such as the source of the article, the tone of the language used, and the verifiability of the claims made in the article.</li>
+                <li>Relevant Verification Articles: In addition to providing you with a true or false rating, our extension also recommends relevant verification articles that you can use to confirm the accuracy of the news article. These verification articles are sourced from reputable and reliable news outlets and fact-checking websites.</li>
+                <li>Customizable Settings: Our extension allows you to customize your settings based on your preferences. You can choose which news sources you want to receive ratings for, and you can also adjust the sensitivity of the rating system to suit your needs.</li>
+                
+            </ul>
+            <h4>Benefits</h4>
+            <ul style="font-family:Roboto-regular">
+                <li>Saves Time: With our extension, you no longer have to spend time researching the accuracy of news articles manually. Our extension provides you with accurate and reliable information with just a few clicks.</li>
+                <li>Promotes Credible Journalism: By promoting the verification of news articles, our extension encourages journalists to produce accurate and truthful reporting.</li>
+                <li>Empowers Users: With the ability to determine the accuracy of news articles, our extension empowers users to make informed decisions about the information they consume.</li>
+
+            </ul>
+            <p style="font-family:Roboto-regular">By downloading and using our Chrome extension, you can become a more informed and responsible consumer of news.</p>
+        </div>
+        <br/>
+        <br/>
+    </div>
+</body>
+
+
