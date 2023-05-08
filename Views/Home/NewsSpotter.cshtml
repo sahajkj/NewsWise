@@ -60,12 +60,30 @@
         font-family: 'Poppins-semibold';
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
         border: 0px solid;
-        
+        border-radius: 4px;
+    
     }
 
     .DownloadExtention{
         position:relative;
         
+    }
+    .tablinks{
+        margin-left:20px;
+        font-family: 'Poppins-semibold';
+        background-color: #D9D9D9;
+        text-decoration: underline;
+        border: 0px solid;
+        border-radius:4px;
+    }
+    .tablinks:hover{
+        color:#FFBB00;
+            text-decoration: underline;
+    }
+    .tablinks:focus{
+            color: #FFBB00;
+            text-decoration: underline;
+
     }
 </style>
 
@@ -96,8 +114,20 @@
         </div>
 
     </div>
-    <div class="aContent  p-2 " style="background-color:#F2F4F4; margin-left:-10px;margin-right:-10px" align=center>
-        <div class="aContent col-sm-10  p-2 " align=justify style="background-color:#F2F4F4">
+    
+    <div  class="aCon  p-2 " style="background-color:#F2F4F4; margin-left:-10px;margin-right:-10px" align=center>
+        <div class="tab" align=left style="background-color:#D9D9D9">
+            <br/>
+            <button class="tablinks p-2" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tablinks p-2" onclick="openTab(event, 'Install')">Install and manage extensions</button>
+            <button class="tablinks p-2" onclick="openTab(event, 'Privacy')">Privacy Policy</button>
+            <br/>
+            <br/>
+   
+        </div>
+        <br/>
+        <br/>
+        <div id="Overview" class="aContent col-sm-10  p-2 active" align=justify style="background-color:#F2F4F4">
             <h2 style="font-family:Poppins-semibold;">Overview<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
             <p style="font-family:Roboto-regular">Our Chrome extension helps you analyze the true and false ratings of news articles and provides you with relevant verification articles when you browse webpages. With the rise of fake news and misinformation, it can be difficult to determine what information is accurate and trustworthy. Our extension aims to assist you in making informed decisions by providing you with the necessary tools to verify the credibility of news articles.</p>
             <h4>Features</h4>
@@ -118,7 +148,72 @@
         </div>
         <br/>
         <br/>
+        <div id="Privacy" class="aContent col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none" >
+            <h2 style="font-family:Poppins-semibold;">Privacy Policy<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
+            
+            <p style="font-family:Roboto-regular">We take your privacy seriously and are committed to protecting your personal information. This privacy policy explains how we collect, use, and disclose information when you download and use our Google extension.</p>
+            <h4>Data Collection</h4>
+            <p style="font-family:Roboto-regular">
+                When you download and use our Google extension, we do not collect any personal information about you or your device. We do not track your browsing activity or save any information that can be used to personally identify you.
+                </p>
+            <h4>Data Sharing</h4>
+            <p style="font-family:Roboto-regular">
+                We do not share any data that we collect with any third parties. We do not sell or rent your personal information to anyone.
+            </p>
+            <h4>Data Security</h4>
+            <p style="font-family:Roboto-regular">
+                We take appropriate technical and organizational measures to ensure that your personal information is protected from unauthorized access, theft, or loss. We use secure servers and encryption to safeguard your data.
+            </p>
+            <h4>Changes to this Privacy Policy</h4>
+            <p style="font-family:Roboto-regular">
+                We reserve the right to modify this privacy policy at any time. If we make any material changes to this policy, we will notify you by posting the updated policy on our website or through our Google extension.
+            </p>
+            <h4>Contact Us</h4>
+            <p style="font-family:Roboto-regular">
+                If you have any questions or concerns about this privacy policy or our practices, please contact us.<br/>
+                By using our Google extension, you agree to the terms of this privacy policy. If you do not agree with this policy, please do not use our Google extension.
+            </p>
+        </div>
+        <br />
+        <br />
+        <div id="Install" class="aContent col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none">
+            <h2 style="font-family:Poppins-semibold;">Install and manage extensions<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
+
+            <ol style="font-family:Roboto-regular">
+                <li>Install the Extension: To install our Chrome extension, click the “Download now” button above or go to the Chrome Web Store and search “NEWSWISE”for our extension. Click the "Add to Chrome" button and follow the prompts to complete the installation process.</li>
+                <li>Access the Extension: Once the installation is complete, the extension will be added to your browser toolbar. Click on the extension icon to access its features.</li>
+                <li>Customize Settings: To customize the extension's settings, click on the extension icon and select "Options" from the dropdown menu. From there, you can adjust the sensitivity of the rating system, choose which news sources to receive ratings for, and other settings.</li>
+                <li>Manage Extensions: To manage your installed extensions, click on the three-dot menu icon in the top right corner of your browser and select "More tools" and then "Extensions". From there, you can view a list of your installed extensions, enable or disable them, and manage their settings.</li>
+                <li>Update the Extension: To update the extension to the latest version, go to the Chrome Web Store and search for our extension. If an update is available, click the "Update" button to install the latest version.</li>
+                <li>Uninstall the Extension: To uninstall the extension, right-click on the extension icon in your browser toolbar and select "Remove from Chrome". You can also go to the Chrome Web Store and click on the "Remove" button next to the extension.</li>
+            </ol>
+
+        </div>
+        <br />
+        <br />
     </div>
+    <br />
+    <br />
 </body>
 
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
 
+        // 隐藏所有标签页内容
+        tabcontent = document.getElementsByClassName("aContent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // 移除所有标签页按钮的激活状态
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // 显示当前标签页内容，并将当前按钮设置为激活状态
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
