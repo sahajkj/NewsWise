@@ -34,10 +34,11 @@
         left: 50px;
     }
 
-    .aContent {
+    .aContent1 {
         font-family: Roboto-regular;
         position: relative;
-        
+		background-image: url('../Image/QuizStart1.png');
+        background-size:cover;
     }
 
     .Nav {
@@ -47,14 +48,13 @@
     }
     .AnswerQ{
         font-family: 'Poppins-semibold';
-        background-color:transparent;
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
         border: 0px solid;
-        
-        color: #FFBB00;
+        color: white;
     }
     .Start{
         font-family: 'Poppins-semibold';
-        color: #FFBB00;
+        
     }
 </style>
 
@@ -75,27 +75,40 @@
         
     </div>
     <div class="aContent  p-2 " style="background-color:#F2F4F4; margin-left:-10px;margin-right:-10px" align=center>
-        <div class="aContent col-sm-10  p-2 " align=center style="background-color:#F2F4F4">
-        <img class="col-sm-8" style="width:100%" src="~/image/quizstart.png" />
+        <div class="aContent1 col-sm-10  p-2 " align=center >
+        
         <br />
         <br />
         <br />
-        <h1 class="Start">Quiz for test your fake news detection skills!</h1>
             <br />
             <br />
+            <br />
+            <br />
+            <div class="State col-sm-8">
+            <h1 class="Start" align=left>Quiz on</h1>
+            <h1 class="Start" align=left>fake news</h1>
+            <br />
+            <p align=left>Welcome to our quiz that helps young <br/>teenagers identify fake news. Test your<br/> knowledge and have fun while improving your<br/> critical thinking skills! Are you ready to get<br/> started? </p>
             <br />
         <form>
-            <div class="StartQ" >
-                <button class="AnswerQ p-3" asp-area="" asp-controller="Home" asp-action="QuizContent" style="border-radius:4px;"><img style="height:100px;width:100px;" src="~/image/play 1.png" /><br/><h4>Start</h4></button>
+            <div class="StartQ" align=left >
+                <button class="AnswerQ p-2" asp-area="" asp-controller="Home" asp-action="QuizContent" style="border-radius:40px;">LET'S GO</button>
             </div>
         </form>
+                <br />
+                <br />
+                <br />
+                <br />
+         </div>
         <br />
         <br />
         <br />
         <br />
         <br />
         <br />
-
+            <br />
+            <br />
+            <br />
     </div>
     </div>
 </body>

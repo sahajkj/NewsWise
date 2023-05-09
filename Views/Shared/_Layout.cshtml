@@ -12,12 +12,11 @@
 	<link href="~/lib/bootstrap/dist/css/stylesheet.css" rel="stylesheet" />
 </head>
 <style>
-    .scrollToTopBtn,
-    .scrollToBottomBtn {
+    .scrollToTopBtn {
         display: none;
         position: fixed;
         bottom: 20px;
-        right: 30px;
+        right:-30px;
         z-index: 99;
         font-size: 18px;
         border: none;
@@ -94,9 +93,9 @@
         </main>
     </div>
     <div class="scroll">
-        
-	<button id="scrollToTopBtn" class="scrollToTopBtn col-sm-2"><img src="~/image/upload.png" style="width:30px;height:30px;"  class="col-sm-2" /></button>
-    <button id="scrollToBottomBtn" class="scrollToBottomBtn col-sm-2"><img src="~/image/down-arrow.png" style="width:30px;height:30px;" class="col-sm-2" /></button>
+
+        <button id="scrollToTopBtn" class="scrollToTopBtn col-sm-2"><img src="~/image/up1.png" style="width:30px;height:30px;" class="col-sm-2" /></button>
+    
         </div>
     <footer class="border-top footer text-muted" style="background-color:#C0C0B4">
         <div >
@@ -112,26 +111,19 @@
         
         window.addEventListener("scroll", function () {
             
-            if (window.pageYOffset > 100 && scrollToBottomBtn.style.display == "none") {
+            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 100) {
                 scrollToTopBtn.style.display = "block";
             } else {
                 scrollToTopBtn.style.display = "none";
             }
 
-            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 100 ) {
-                scrollToBottomBtn.style.display = "none";
-            } else {
-                scrollToBottomBtn.style.display = "block";
-            }
         });
 
         scrollToTopBtn.addEventListener("click", function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        scrollToBottomBtn.addEventListener("click", function () {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-        });
+       
         $(function () {
             $('.dropdown').hover(function () {
                 $(this).find('.dropdown-menu').addClass('show');
