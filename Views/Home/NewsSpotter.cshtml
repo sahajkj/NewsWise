@@ -70,19 +70,21 @@
     }
     .tablinks{
         margin-left:20px;
+        margin-top: 10px;
         font-family: 'Poppins-semibold';
         background-color: #D9D9D9;
-        text-decoration: underline;
+        
         border: 0px solid;
         border-radius:4px;
     }
     .tablinks:hover{
-        color:#FFBB00;
-            text-decoration: underline;
+           background: rgba(255, 187, 0, 0.2);
+           
     }
     .tablinks:focus{
-            color: #FFBB00;
-            text-decoration: underline;
+            
+            background: rgba(255, 187, 0, 0.2);
+            
 
     }
 </style>
@@ -118,19 +120,21 @@
                     <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="NewsSpotter">News Spotter</a>
                 </p>
             </div>
-        <div class="tab" align=left style="background-color:#D9D9D9">
+            <div class="d-sm-flex">
+        <div class="tab" align=left>
             
             <br/>
-            <button class="tablinks p-2" onclick="openTab(event, 'Overview')">Overview</button>
-            <button class="tablinks p-2" onclick="openTab(event, 'Install')">Install and manage extensions</button>
-            <button class="tablinks p-2" onclick="openTab(event, 'Privacy')">Privacy Policy</button>
+            <button class="tablinks col-sm-10 p-2" onclick="openTab(event, 'Overview')">Overview</button>
+            <button class="tablinks col-sm-10 p-2" onclick="openTab(event, 'Install')">Install & Manage</button>
+            <button class="tablinks col-sm-10 p-2" onclick="openTab(event, 'Privacy')">Privacy Policy</button>
             <br/>
             <br/>
    
         </div>
         <br/>
         <br/>
-        <div id="Overview" class="aContent col-sm-10  p-2 active" align=justify style="background-color:#F2F4F4">
+        <div>
+        <div id="Overview" class="aContent tab-pane col-sm-10  p-2 active" align=justify style="background-color:#F2F4F4">
             <h2 style="font-family:Poppins-semibold;">Overview<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
             <p style="font-family:Roboto-regular">Our Chrome extension helps you analyze the true and false ratings of news articles and provides you with relevant verification articles when you browse webpages. With the rise of fake news and misinformation, it can be difficult to determine what information is accurate and trustworthy. Our extension aims to assist you in making informed decisions by providing you with the necessary tools to verify the credibility of news articles.</p>
             <h4>Features</h4>
@@ -148,10 +152,16 @@
 
             </ul>
             <p style="font-family:Roboto-regular">By downloading and using our Chrome extension, you can become a more informed and responsible consumer of news.</p>
+                    <div class="DownloadExtention col-sm-12" align=right>
+                        
+                        <form>
+                            <button type="submit" class="download p-2">DOWNLOAD NOW</button>
+                        </form>
+                    </div>
         </div>
         <br/>
         <br/>
-        <div id="Privacy" class="aContent col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none" >
+                <div id="Privacy" class="aContent tab-pane col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none">
             <h2 style="font-family:Poppins-semibold;">Privacy Policy<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
             
             <p style="font-family:Roboto-regular">We take your privacy seriously and are committed to protecting your personal information. This privacy policy explains how we collect, use, and disclose information when you download and use our Google extension.</p>
@@ -176,10 +186,16 @@
                 If you have any questions or concerns about this privacy policy or our practices, please contact us.<br/>
                 By using our Google extension, you agree to the terms of this privacy policy. If you do not agree with this policy, please do not use our Google extension.
             </p>
+                    <div class="DownloadExtention col-sm-12" align=right>
+                        
+                        <form>
+                            <button type="submit" class="download p-2">DOWNLOAD NOW</button>
+                        </form>
+                    </div>
         </div>
         <br />
         <br />
-        <div id="Install" class="aContent col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none">
+        <div id="Install" class="aContent tab-pane col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none">
             <h2 style="font-family:Poppins-semibold;">Install and manage extensions<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
 
             <ol style="font-family:Roboto-regular">
@@ -190,13 +206,20 @@
                 <li>Update the Extension: To update the extension to the latest version, go to the Chrome Web Store and search for our extension. If an update is available, click the "Update" button to install the latest version.</li>
                 <li>Uninstall the Extension: To uninstall the extension, right-click on the extension icon in your browser toolbar and select "Remove from Chrome". You can also go to the Chrome Web Store and click on the "Remove" button next to the extension.</li>
             </ol>
-
+                    <div class="DownloadExtention col-sm-12" align=right>
+                        
+                        <form>
+                            <button type="submit" class="download p-2">DOWNLOAD NOW</button>
+                        </form>
+                    </div>
         </div>
         <br />
         <br />
+      </div>
     </div>
     <br />
     <br />
+    </div>
 </body>
 
 <script>
