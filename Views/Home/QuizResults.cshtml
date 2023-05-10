@@ -25,8 +25,8 @@
     }
 
     .Back {
-        color: #D9D9D9;
-        font-size: 10px;
+        color:  #708090;
+        font-size: 14px;
         font-family: 'Roboto-medium';
         position: relative;
         left: 50px;
@@ -40,8 +40,8 @@
         font-family:Poppins-medium;
     }
     .Nav {
-        color: #D9D9D9;
-        font-size: 10px;
+        color: #708090;
+        font-size: 14px;
         font-family: 'Roboto-medium';
     }
 
@@ -120,14 +120,16 @@
         <h2 class="AboutTitle">Quiz.</h2>
     </div>
     <br />
-    <div class="Back">
-        <p>
-            <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
-        </p>
-    </div>
+   
 </div>
 
 <div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
+     <div class="Back" align=left>
+        <br/>
+        <p>
+            <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
+        </p >
+    </div>
     <div class=" QuizR col-sm-8 bg-white">
         <p class="ResultTitle" align=left>You've Got:</p>
         <h1 class="ResultScore"><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
