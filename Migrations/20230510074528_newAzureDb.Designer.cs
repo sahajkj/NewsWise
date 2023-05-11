@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewsWise.Models;
 
@@ -11,9 +12,11 @@ using NewsWise.Models;
 namespace NewsWise.Migrations
 {
     [DbContext(typeof(NewswiseDbContext))]
-    partial class NewswiseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230510074528_newAzureDb")]
+    partial class newAzureDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,24 +123,6 @@ namespace NewsWise.Migrations
                     b.HasKey("ReviewPublisherId");
 
                     b.ToTable("ReviewPublisher");
-                });
-
-            modelBuilder.Entity("NewsWise.Models.testClass", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TestClasses");
                 });
 
             modelBuilder.Entity("NewsWise.Models.Claim", b =>

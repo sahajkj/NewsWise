@@ -131,8 +131,8 @@ namespace NewsWise.Controllers
         }
         public IActionResult Index()
         {
-            return View();
-            //return View(_context.Review.ToList());
+            //return View();
+            return View(_context.Review.ToList());
         }
         public IActionResult SpotTip()
         {
@@ -235,7 +235,7 @@ namespace NewsWise.Controllers
 
             // Send quiz data to Flask API and receive feedback
             var client = new HttpClient();
-            var response = await client.PostAsJsonAsync("https://newswiseapi.azurewebsites.net/quiz_feedback", quizData);
+            var response = await client.PostAsJsonAsync("https://newswise.online/quiz_feedback", quizData);
             var feedbackJson = await response.Content.ReadAsStringAsync();
             var feedback = JsonConvert.DeserializeObject<dynamic>(feedbackJson);
             string SuggestedPage = feedback["Suggested Page"];

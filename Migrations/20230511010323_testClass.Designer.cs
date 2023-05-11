@@ -12,8 +12,8 @@ using NewsWise.Models;
 namespace NewsWise.Migrations
 {
     [DbContext(typeof(NewswiseDbContext))]
-    [Migration("20230430024524_redoDb")]
-    partial class redoDb
+    [Migration("20230511010323_testClass")]
+    partial class testClass
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -123,6 +123,24 @@ namespace NewsWise.Migrations
                     b.HasKey("ReviewPublisherId");
 
                     b.ToTable("ReviewPublisher");
+                });
+
+            modelBuilder.Entity("NewsWise.Models.testClass", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TestClasses");
                 });
 
             modelBuilder.Entity("NewsWise.Models.Claim", b =>

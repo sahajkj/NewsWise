@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NewsWise.Migrations
 {
     /// <inheritdoc />
-    public partial class redoDb : Migration
+    public partial class newAzureDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
