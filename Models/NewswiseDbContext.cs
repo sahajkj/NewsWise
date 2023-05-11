@@ -10,7 +10,6 @@ namespace NewsWise.Models
         public DbSet<Claim> Claims { get; set; }
         public DbSet<ReviewPublisher> ReviewPublisher { get; set; }
         public DbSet<ClaimReview> Review { get; set; }
-        public DbSet<testClass> TestClasses { get; set; }
 
     }
 }
