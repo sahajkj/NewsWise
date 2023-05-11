@@ -44,7 +44,7 @@ namespace NewsWise.Migrations
 
                     b.HasIndex("ClaimantId");
 
-                    b.ToTable("Claims");
+                    b.ToTable("Claims", (string)null);
                 });
 
             modelBuilder.Entity("NewsWise.Models.ClaimReview", b =>
@@ -81,7 +81,7 @@ namespace NewsWise.Migrations
 
                     b.HasIndex("ReviewPublisherId");
 
-                    b.ToTable("Review");
+                    b.ToTable("Review", (string)null);
                 });
 
             modelBuilder.Entity("NewsWise.Models.Claimant", b =>
@@ -98,7 +98,7 @@ namespace NewsWise.Migrations
 
                     b.HasKey("ClaimantId");
 
-                    b.ToTable("Claimants");
+                    b.ToTable("Claimants", (string)null);
                 });
 
             modelBuilder.Entity("NewsWise.Models.ReviewPublisher", b =>
@@ -119,25 +119,7 @@ namespace NewsWise.Migrations
 
                     b.HasKey("ReviewPublisherId");
 
-                    b.ToTable("ReviewPublisher");
-                });
-
-            modelBuilder.Entity("NewsWise.Models.testClass", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TestClasses");
+                    b.ToTable("ReviewPublisher", (string)null);
                 });
 
             modelBuilder.Entity("NewsWise.Models.Claim", b =>
