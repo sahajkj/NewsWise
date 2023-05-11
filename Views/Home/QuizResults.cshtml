@@ -38,6 +38,8 @@
     }
     .QuizR{
         font-family:Poppins-medium;
+        background-image: url('../Image/QuizStart1.png');
+        background-size: cover;
     }
     .Nav {
         color: #708090;
@@ -99,9 +101,10 @@
         font-family:Poppins-semibold;
         position:relative;
         right: 20px;
+        color:white;
         border: 0px solid;
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
-        border-radius:4px;
+        border-radius:40px;
     }
     .feedB{
         position:relative;
@@ -110,9 +113,10 @@
     input:checked + label {
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
     }
+    
 
 </style>
-
+<body>
 <div class="AboutContent body-content p-1 bg-black" style="margin-top:-23px;margin-left:-15px;margin-right:120px;">
     <br />
     <div class="aTopic">
@@ -130,20 +134,44 @@
             <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
         </p >
     </div>
-    <div class=" QuizR col-sm-8 bg-white">
-        <p class="ResultTitle" align=left>You've Got:</p>
-        <h1 class="ResultScore"><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
+    <div class=" QuizR col-sm-10 bg-white" >
+        <br />
+        <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        <div class="Res col-sm-6" align="left" style="margin-left:-20px; margin-right:30px;">
+        <p class="ResultTitle">You've Got:</p>
+            <h1 class="ResultScore"  align=left><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
         <br/>
+        <div align=left>
+            <svg id="chart" style="margin-left:-40px;"></svg>
+        </div>
         <p class="feedB" align="justify" style="margin-right:40px">
             Feedback:
             <span class="Feedback">@Html.Raw(@Model.Feedback)</span>
         </p>
         <br />
         <form method="get" action="@Model.SuggestedPage">
-            <div align=right>
-                <button class="FindArticle p-2" type="submit">@Model.SuggestedText</button>
+                <div >
+                 <button class="FindArticle p-2" style="margin-left:30px;" type="submit">@Model.SuggestedText</button>
             </div>
         </form>
+        <br />
+        <br />
+        <br />
+            <br />
+            <br />
+            <br />
+                <br />
+                
+               
+        </div>
         <br />
         <br />
         <br />
@@ -151,3 +179,58 @@
        
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script>
+    var mark = @Model.Score *12.5;
+    var percent = [100 - mark, mark];
+
+    var width = 460,
+        height = 300,
+        radius = Math.min(width, height) / 2;
+
+    var color = ["#FFFFFF", "#FFBB00"];
+
+    var pie = d3.layout.pie()
+        .sort(null);
+
+    var arc = d3.svg.arc()
+        .innerRadius(radius - 100)
+        .outerRadius(radius - 50);
+
+    var svg = d3.select("#chart")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    var path = svg.selectAll("path")
+        .data(pie(percent))
+        .enter()
+        .append("path")
+        .attr("fill", (d, i) => color[i])
+        .attr("d", arc)
+        .transition()
+        .duration(1000)
+        .attrTween("d", function (d) {
+            var i = d3.interpolate(d.endAngle, d.startAngle);
+            return function (t) {
+                d.startAngle = i(t);
+                return arc(d);
+            }
+        });
+
+    var show_mark = svg.selectAll("text")
+        .data(percent.filter(function (d, i) {
+            return i == 0;
+        }))
+        .enter()
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr("fill", "#000000")
+        .attr("font-family", "sans-serif")
+        .style("font-size", "1.3em")
+        .transition()
+        .delay(1000)
+        .text(function (d) { return 100 - d + '/100'; })
+</script>
+</body>
