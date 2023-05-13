@@ -12,12 +12,15 @@
 	<link href="~/lib/bootstrap/dist/css/stylesheet.css" rel="stylesheet" />
 </head>
 <style>
+    body {
+        overflow-x: hidden;
+    }
     .scrollToTopBtn {
         display: none;
         position: fixed;
         bottom: 20px;
-        right:-30px;
-        z-index: 99;
+        right:-80px;
+        z-index: 100;
         font-size: 18px;
         border: none;
         outline: none;
@@ -94,13 +97,15 @@
     </div>
     <div class="scroll">
 
-        <button id="scrollToTopBtn" class="scrollToTopBtn col-sm-2"><img src="~/image/up1.png" style="width:30px;height:30px;" class="col-sm-2" /></button>
+        <button id="scrollToTopBtn" class="scrollToTopBtn col-sm-2">
+            <img src="~/image/up1.png" style="width:50px;" class="col-sm-2" />
+        </button>
     
         </div>
     <footer class="border-top footer text-muted" style="background-color:#C0C0B4">
-        <div >
+        @*<div >
              - NewsWise -
-        </div>
+        </div>*@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
