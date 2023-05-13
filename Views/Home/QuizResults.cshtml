@@ -145,12 +145,12 @@
             <br />
             <br />
             <br />
-        <div class="Res col-sm-6" align="left" style="margin-left:-20px; margin-right:30px;">
+        <div class="Res col-sm-6" align="left" style=" margin-right:30px;">
         <p class="ResultTitle">You've Got:</p>
             <h1 class="ResultScore"  align=left><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
         <br/>
-        <div align=left>
-            <svg id="chart" style="margin-left:-40px;"></svg>
+        <div class="col-sm-6" align=left>
+            <svg id="chart"  style="margin-left:-10px"></svg>
         </div>
         <p class="feedB" align="justify" style="margin-right:40px">
             Feedback:
@@ -181,7 +181,9 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 <script>
-    var mark = @Model.Score *12.5;
+    var mark = @Model.Score;
+    var mark1=mark;
+    mark=12.5*mark;
     var percent = [100 - mark, mark];
 
     var width = 460,
@@ -231,6 +233,6 @@
         .style("font-size", "1.3em")
         .transition()
         .delay(1000)
-        .text(function (d) { return 100 - d + '/100'; })
+            .text(function (d) { return mark1 + '/8'; })
 </script>
 </body>

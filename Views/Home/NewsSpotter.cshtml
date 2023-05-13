@@ -87,6 +87,12 @@
             
 
     }
+
+    .fixed-position {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
 </style>
 
 <body>
@@ -120,21 +126,24 @@
                     <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="NewsSpotter">News Spotter</a>
                 </p>
             </div>
-            <div class="d-sm-flex">
+        <div class="d-sm-flex col-sm-11">
         <div class="tab" align=left>
             
             <br/>
-            <button class="tablinks col-sm-10 p-2" onclick="openTab(event, 'Overview')">Overview</button>
-            <button class="tablinks col-sm-10 p-2" onclick="openTab(event, 'Install')">Install & Manage</button>
-            <button class="tablinks col-sm-10 p-2" onclick="openTab(event, 'Privacy')">Privacy Policy</button>
+            <button class="tablinks col-sm-10 p-2"  style="width:200px;" onclick="openTab(event, 'Overview')">Overview</button>
+                <button class="tablinks col-sm-10 dropdown-toggle p-2" style="width:200px;" onclick="toggleDropdown()">Install & Manage</button>
+                <div id="dropdown" style="display: none;" >
+                    <button class="tablinks col-sm-10 p-2" style="width:200px;" onclick="openTab(event, 'Chrome')">Chrome</button>
+                    <button class="tablinks col-sm-10 p-2" style="width:200px;" onclick="openTab(event, 'Edge')">Edge</button>
+                    <button class="tablinks col-sm-10 p-2" style="width:200px;" onclick="openTab(event, 'Safari')">Safari</button>
+                </div>
+                <button class="tablinks col-sm-10 p-2" style="width:200px;" onclick="openTab(event, 'Privacy')">Privacy Policy</button>
             <br/>
             <br/>
    
         </div>
-        <br/>
-        <br/>
-        <div>
-        <div id="Overview" class="aContent tab-pane col-sm-10  p-2 active" align=justify style="background-color:#F2F4F4">
+
+            <div id="Overview" class="aContent tab-pane col-sm-9 fixed-position  p-2 active " align=justify style="background-color:#F2F4F4;  margin-right:20px;">
             <h2 style="font-family:Poppins-semibold;">Overview<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
             <p style="font-family:Roboto-regular">Our Chrome extension helps you analyze the true and false ratings of news articles and provides you with relevant verification articles when you browse webpages. With the rise of fake news and misinformation, it can be difficult to determine what information is accurate and trustworthy. Our extension aims to assist you in making informed decisions by providing you with the necessary tools to verify the credibility of news articles.</p>
             <h4>Features</h4>
@@ -161,15 +170,15 @@
         </div>
         <br/>
         <br/>
-                <div id="Privacy" class="aContent tab-pane col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none">
-            <h2 style="font-family:Poppins-semibold;">Privacy Policy<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
+            <div id="Privacy" class="aContent tab-pane  fixed-position col-sm-9  p-2 " align=justify style="background-color:#F2F4F4;  margin-right:20px; display:none">
+          <h2 style="font-family:Poppins-semibold;">Privacy Policy<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
             
-            <p style="font-family:Roboto-regular">We take your privacy seriously and are committed to protecting your personal information. This privacy policy explains how we collect, use, and disclose information when you download and use our Google extension.</p>
-            <h4>Data Collection</h4>
-            <p style="font-family:Roboto-regular">
-                When you download and use our Google extension, we do not collect any personal information about you or your device. We do not track your browsing activity or save any information that can be used to personally identify you.
-                </p>
-            <h4>Data Sharing</h4>
+          <p style="font-family:Roboto-regular">We take your privacy seriously and are committed to protecting your personal information. This privacy policy explains how we collect, use, and disclose information when you download and use our Google extension.</p>
+          <h4>Data Collection</h4>
+          <p style="font-family:Roboto-regular">
+           When you download and use our Google extension, we do not collect any personal information about you or your device. We do not track your browsing activity or save any information that can be used to personally identify you.
+           </p>
+           <h4>Data Sharing</h4>
             <p style="font-family:Roboto-regular">
                 We do not share any data that we collect with any third parties. We do not sell or rent your personal information to anyone.
             </p>
@@ -195,8 +204,8 @@
         </div>
         <br />
         <br />
-        <div id="Install" class="aContent tab-pane col-sm-10  p-2 " align=justify style="background-color:#F2F4F4; display:none">
-            <h2 style="font-family:Poppins-semibold;">Install and manage extensions<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
+            <div id="Chrome" class="aContent tab-pane col-sm-9 fixed-position p-2 " align=justify style="background-color:#F2F4F4; margin-right:20px; display:none">
+            <h2 style="font-family:Poppins-semibold;">Install and manage extensions:<br/>Chrome<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
 
             <ol style="font-family:Roboto-regular">
                 <li>Install the Extension: To install our Chrome extension, click the “Download now” button above or go to the Chrome Web Store and search “NEWSWISE”for our extension. Click the "Add to Chrome" button and follow the prompts to complete the installation process.</li>
@@ -215,8 +224,50 @@
         </div>
         <br />
         <br />
+            <div id="Edge" class="aContent tab-pane col-sm-9 fixed-position p-2 " align=justify style="background-color:#F2F4F4; margin-right:20px; display:none">
+                <h2 style="font-family:Poppins-semibold;">Install and manage extensions:<br />Edge<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
+
+                <ol style="font-family:Roboto-regular">
+                    <li>Install the Extension: To install our Edge extension, go to the Microsoft Edge Add-ons Store and search for our extension. Click the "Get" button and follow the prompts to complete the installation process.</li>
+                    <li>Access the Extension: Once the installation is complete, the extension will be added to your browser toolbar. Click on the extension icon to access its features.</li>
+                    <li>Customize Settings: To customize the extension's settings, click on the extension icon and select "Options" from the dropdown menu. From there, you can adjust the sensitivity of the rating system, choose which news sources to receive ratings for, and other settings.</li>
+                    <li>Manage Extensions: To manage your installed extensions, click on the three-dot menu icon in the top right corner of your browser and select "Extensions". From there, you can view a list of your installed extensions, enable or disable them, and manage their settings.</li>
+                    <li>Update the Extension: To update the extension to the latest version, go to the Microsoft Edge Add-ons Store and search for our extension. If an update is available, click the "Update" button to install the latest version.</li>
+                    <li>Uninstall the Extension: To uninstall the extension, right-click on the extension icon in your browser toolbar and select "Remove from Microsoft Edge". You can also go to the Microsoft Edge Add-ons Store and click on the "Uninstall" button next to the extension.</li>
+                </ol>
+                <div class="DownloadExtention col-sm-12" align=right>
+
+                    <form>
+                        <button type="submit" class="download p-2">DOWNLOAD NOW</button>
+                    </form>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div id="Safari" class="aContent tab-pane col-sm-9 fixed-position p-2 " align=justify style="background-color:#F2F4F4; margin-right:20px; display:none">
+                <h2 style="font-family:Poppins-semibold;">Install and manage extensions:<br />Safari<span style="font-family:Poppins-semibold;color:#FFBB00">.</span></h2>
+
+
+                <ol style="font-family:Roboto-regular">
+                    <li>Install the Extension: To install our Safari extension, go to the Safari Extensions Gallery and search for our extension. Click the "Install" button and follow the prompts to complete the installation process.</li>
+                    <li>Access the Extension: Once the installation is complete, the extension will be added to your browser toolbar. Click on the extension icon to access its features.</li>
+                    <li>Customize Settings: To customize the extension's settings, click on the extension icon and select "Preferences" from the dropdown menu. From there, you can adjust the sensitivity of the rating system, choose which news sources to receive ratings for, and other settings.</li>
+                    <li>Manage Extensions: To manage your installed extensions, go to Safari Preferences and select the "Extensions" tab. From there, you can view a list of your installed extensions, enable or disable them, and manage their settings.</li>
+                    <li>Update the Extension: To update the extension to the latest version, go to the Safari Extensions Gallery and search for our extension. If an update is available, click the "Update" button to install the latest version.</li>
+                    <li>Uninstall the Extension: To uninstall the extension, right-click on the extension icon in your browser toolbar and select "Uninstall". You can also go to Safari Preferences, select the "Extensions" tab, and click the "Uninstall" button next to the extension.</li>
+                </ol>
+                <div class="DownloadExtention col-sm-12" align=right>
+
+                    <form>
+                        <button type="submit" class="download p-2">DOWNLOAD NOW</button>
+                    </form>
+                </div>
+            </div>
+            <br />
+            <br />
+           
       </div>
-    </div>
+    
     <br />
     <br />
     </div>
@@ -226,20 +277,28 @@
     function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
 
-        // 隐藏所有标签页内容
+       
         tabcontent = document.getElementsByClassName("aContent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
 
-        // 移除所有标签页按钮的激活状态
+       
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
 
-        // 显示当前标签页内容，并将当前按钮设置为激活状态
+    
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
+    }
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdown");
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
     }
 </script>

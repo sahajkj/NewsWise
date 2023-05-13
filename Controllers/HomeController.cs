@@ -269,10 +269,7 @@ namespace NewsWise.Controllers
         {
             return View();
         }
-        public IActionResult Education()
-        {
-            return View();
-        }
+       
 
         public IActionResult NewsSpotter() 
         {
