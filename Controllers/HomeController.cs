@@ -91,49 +91,42 @@ namespace NewsWise.Controllers
             return View(claimReview);
         }
 
-        public IActionResult Search(string searchString)
+        public async Task<IActionResult> Search(string searchString)
         {
-            ClaimReview match = null;
-            if (!searchString.IsNullOrEmpty())
+            if (!string.IsNullOrEmpty(searchString))
             {
-                List<ClaimReview> articles = _context.Review.ToList();
-                foreach (var article in articles)
+                var match = await _context.Review
+                    .FirstOrDefaultAsync(a => a.Title != null && a.Title.ToUpper().Contains(searchString.ToUpper()));
+
+                if (match != null)
                 {
-                    if (article.Title != null)
-                        if (article.Title.ToUpper().Contains(searchString.ToUpper()))
-                        {
-                            match = article;
-                            break;
-                        }
+                    return RedirectToAction("Details", "ClaimReviews", new { id = match.ClaimReviewId });
                 }
             }
-            if (match != null)
-            {
-                return RedirectToAction("Details", "ClaimReviews", new { id = match.ClaimReviewId });
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
         public IActionResult Autofill()
         {
             string prefix = HttpContext.Request.Query["term"].ToString();
-            var articleList = _context.Review.Where(i => i.Title.Contains(prefix) || i.Url.Contains(prefix))
-                     .Select(i => i.Title).ToList().Take(20);
+            var articleList = _context.Review.Where(i => i.Title.Contains(prefix))
+                     .Select(i => i.Title).Take(10).ToList();
             return Ok(articleList);
         }
         public IActionResult Existence()
         {
             return View();
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int pageSize = 10)
         {
-            //return View();
-            return View(_context.Review.ToList());
+            var records = _context.Review
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+            return View(records);
         }
+
         public IActionResult SpotTip()
         {
             return View();
