@@ -1,0 +1,662 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Quiz Content 1";
+}
+
+
+<!-- JavaScript -->
+@*<div class="container">
+    <nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#page1">Page 1</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#page2">Page 2</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#page3">Page 3</button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="page1">
+            <h1>Page 1</h1>
+        </div>
+        <div class="tab-pane fade" id="page2">
+            <h1>Page 2</h1>
+        </div>
+        <div class="tab-pane fade" id="page3">
+            <h1>Page 3</h1>
+        </div>
+    </div>
+
+    <button onclick="goBack()" class="btn btn-secondary">Previous page</button>
+</div>
+
+<!-- JavaScript -->
+<script>
+
+    function getCurrentTarget() {
+        var activeTab = document.querySelector('.tab-pane.fade.show.active');
+        return activeTab.id;
+    }
+
+
+    function goBack() {
+        var currentTarget = getCurrentTarget();
+        var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+        for (var i = 0; i < tabLinks.length; i++) {
+            if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
+                tabLinks[i-1].click();
+                break;
+            }
+        }
+    }
+</script>*@
+
+<style>
+    body {
+        background-color: black;
+    }
+
+    .aboutLearn {
+        font-family: 'Poppins-Medium';
+        font-size: 11px;
+        color: #B3B3B3;
+    }
+
+    .aTopic {
+        position: relative;
+        left: 140px;
+    }
+
+    .AboutTitle {
+        font-family: 'Poppins-semibold';
+        color: #FFBB00;
+        margin-top: -20px;
+    }
+
+    .Back {
+        color: #708090;
+        font-size: 14px;
+        font-family: 'Roboto-medium';
+        position: relative;
+        left: 50px;
+    }
+
+    .aContent {
+        font-family: Roboto-regular;
+    }
+
+    .Nav {
+        color: #708090;
+        font-size: 14px;
+        font-family: 'Roboto-medium';
+    }
+
+    .AnswerQ {
+        font-family: 'Poppins-semibold';
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        border: 0px solid;
+        position: relative;
+        right: 20px;
+    }
+
+    .QpageNavItem {
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 4px;
+        background-color: #D9D9D9;
+    }
+
+        .QpageNavItem:hover {
+            background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        }
+
+    .nav-pills .nav-item .nav-link.active,
+    .nav-pills .nav-item .nav-link:hover {
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        color: #fff;
+    }
+
+    .checkbox1 {
+        border: 0px solid;
+        position: relative;
+        color: black;
+        background-color: #D9D9D9;
+    }
+
+        .checkbox1:hover {
+            background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        }
+
+    .QuestionType {
+        font-size: 30px;
+    }
+
+    .QTitle {
+        position: relative;
+        font-family: Poppins-medium;
+    }
+
+    .Qsig {
+        color: #FFBB00;
+    }
+
+    .SubmitQuestion {
+        position: relative;
+        border: 0px solid;
+        border-radius: 4px;
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        font-family: 'Poppins-semibold';
+    }
+
+    input:checked + label {
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+    }
+
+    .nav-pills .nav-item.active {
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+    }
+
+    .answered {
+        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+    }
+</style>
+
+<body>
+
+    <div class="AboutContent body-content p-1 bg-black" style="margin-top:-23px;margin-left:-15px;margin-right:120px;">
+        <br />
+        <div class="aTopic">
+            <p class="aboutLearn">Do a</p>
+            <h2 class="AboutTitle">Quiz.</h2>
+
+        </div>
+        <br />
+
+    </div>
+    <div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
+        <div class="Back" align=left>
+            <br />
+            <p>
+                <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
+            </p>
+        </div>
+        <form method="post">
+            <div class="QuizC col-sm-8 bg-white">
+                <div class="tab-content">
+                    <div class="page1 tab-pane fade show active" id="page1" role="tabpanel" aria-labelledby="page1-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            <span class="QuestionType"> General Questions<br /></span>
+                            Question 1/8
+                            <span class="Qsig">：</span>
+                            <br />
+
+                            Which of the following is a sign that an image or video may have been manipulated?
+
+                        </p>
+                        <div class="chooseAnswer btn-group-sm">
+
+                            <input type="radio" class="Q1 p-2 btn-check" data-question-id="1" name="one" id="option" value="A" autocomplete="off" required />
+                            <label for="option" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. The source of the image or video is a reputable news outlet.
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q1 p-2 btn-check" data-question-id="1" name="one" id="option2" value="B" autocomplete="off" required />
+                            <label for="option2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. The image or video contains obvious spelling errors.
+
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q1 p-2 btn-check" name="one" data-question-id="1" id="option3" value="C" autocomplete="off" required />
+                            <label for="option3" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                C. The image or video looks distorted or blurry in certain areas.
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page2" role="tabpanel" aria-labelledby="page2-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 2/8
+                            <span class="Qsig">：</span>
+
+                            <br />
+
+
+                            What is fake news?
+
+
+                        </p>
+
+
+                        <div class="chooseAnswer1 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q2 p-2 btn-check" data-question-id="2" name="Two" id="optionS" value="A" autocomplete="off" required />
+                            <label for="optionS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. News that is factually accurate
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q2 p-2 btn-check" data-question-id="2" name="Two" id="optionS2" value="B" autocomplete="off" required />
+                            <label for="optionS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. News that is intentionally misleading and created to deceive people
+                            </label>
+
+                            <br />
+                            <br />
+                            <input type="radio" class="Q2 p-2 btn-check" data-question-id="2" name="Two" id="optionS3" value="C" autocomplete="off" required />
+                            <label for="optionS3" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                C. News that is boring and uninteresting
+                            </label>
+                            <br />
+                            <br />
+                            <input type="radio" class="Q2 p-2 btn-check" data-question-id="2" name="Two" id="optionS4" value="D" autocomplete="off" required />
+                            <label for="optionS4" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                D. News that is produced by independent journalists
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page3" role="tabpanel" aria-labelledby="page3-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 3/8<span class="Qsig">：</span>
+
+                            <br />
+
+                            Which of the following is NOT a characteristic of fake news?
+
+
+
+                        </p>
+
+
+                        <div class="chooseAnswer2 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q3 p-2 btn-check" data-question-id="3" name="Three" id="optionSS" value="A" autocomplete="off" required />
+                            <label for="optionSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Intentionally misleading
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q3 p-2 btn-check" data-question-id="3" name="Three" id="optionSS2" value="B" autocomplete="off" required />
+                            <label for="optionSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Created to deceive people
+                            </label>
+                            <br />
+                            <br />
+                            <input type="radio" class="Q3 p-2 btn-check" data-question-id="3" name="Three" id="optionSS3" value="C" autocomplete="off" required />
+                            <label for="optionSS3" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                C. Based on factual evidence
+                            </label>
+                            <br />
+                            <br />
+                            <input type="radio" class="Q3 p-2 btn-check" data-question-id="3" name="Three" id="optionSS4" value="D" autocomplete="off" required />
+                            <label for="optionSS4" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                D. Can have serious consequences
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page4" role="tabpanel" aria-labelledby="page4-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 4/8<span class="Qsig">：</span>
+
+                            <br />
+                            What is one way to identify fake news?
+
+
+
+                        </p>
+
+
+                        <div class="chooseAnswer3 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q4 p-2 btn-check" data-question-id="4" name="Four" id="optionSSS" value="A" autocomplete="off" required />
+                            <label for="optionSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Look for a reputable source
+
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q4 p-2 btn-check" data-question-id="4" name="Four" id="optionSSS2" value="B" autocomplete="off" required />
+                            <label for="optionSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Share it on social media
+                            </label>
+                            <br />
+                            <br />
+                            <input type="radio" class="Q4 p-2 btn-check" data-question-id="4" name="Four" id="optionSSS3" value="C" autocomplete="off" required />
+                            <label for="optionSSS3" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                C. Assume it is true unless proven false
+                            </label>
+                            <br />
+                            <br />
+                            <input type="radio" class="Q4 p-2 btn-check" data-question-id="4" name="Four" id="optionSSS4" value="D" autocomplete="off" required />
+                            <label for="optionSSS4" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                D. Ignore it and move on to the next story
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page5" role="tabpanel" aria-labelledby="page5-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 5/8<span class="Qsig">：</span>
+
+                            <br />
+
+
+                            What is the role of social media in the spread of fake news?
+
+
+                        </p>
+
+
+                        <div class="chooseAnswer4 btn-group-sm">
+                            <br />
+
+                            <input type="radio" class="Q5 p-2 btn-check" data-question-id="5" name="Five" id="optionSSSS" value="A" autocomplete="off" required />
+                            <label for="optionSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                A. Social media is not a factor in the spread of fake news
+
+                            </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q5 p-2 btn-check" data-question-id="5" name="Five" id="optionSSSS2" value="B" autocomplete="off" required />
+                            <label for="optionSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                B. Social media can amplify the spread of fake news
+
+                            </label>
+                            <br />
+                            <br />
+                            <input type="radio" class="Q5 p-2 btn-check" data-question-id="5" name="Five" id="optionSSSS3" value="C" autocomplete="off" required />
+                            <label for="optionSSSS3" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                C. Social media only spreads fake news that is already popular
+                            </label>
+                            <br />
+                            <br />
+                            <input type="radio" class="Q5 p-2 btn-check" data-question-id="5" name="Five" id="optionSSSS4" value="D" autocomplete="off" required />
+                            <label for="optionSSSS4" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                D. Social media companies are actively working to prevent the spread of fake news
+                            </label>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="page6" role="tabpanel" aria-labelledby="page6-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            <span class="QuestionType">
+                                True or False questions
+                                <br />
+                            </span>
+                            Question 6/8<span class="Qsig">：</span>
+
+                            <br />
+
+
+                            Fake news refers to news that is intentionally misleading and created to deceive people.
+                        </p>
+
+
+                        <div class="chooseAnswer5  btn-group-sm">
+                            <br />
+                            <br />
+                            <input type="radio" class="Q6 p-2 btn-check" data-question-id="6" name="Six" id="optionSSSSS" value="A" autocomplete="off" required />
+                            <label for="optionSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                 True
+                            </label>
+                            <br />
+                            <br />
+                            
+                            <input type="radio" class="Q6 p-2 btn-check" data-question-id="6" name="Six" id="optionSSSSS2" value="B" autocomplete="off" required />
+                            <label for="optionSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                                False
+                            </label>
+                            <br />
+                            <br />
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <div class="tab-pane fade" id="page7" role="tabpanel" aria-labelledby="page7-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 7/8<span class="Qsig">：</span>
+
+                            <br />
+
+
+                            One way to identify fake news is to look for the source and see if it is a reputable news organization.
+                        </p>
+
+
+                        <div class="chooseAnswer6 btn-group-sm">
+                            <br />
+                            <br />
+                        <input type="radio" class="Q7 p-2 btn-check" data-question-id="7" name="Seven" id="optionSSSSSS" value="A" autocomplete="off" required />
+                        <label for="optionSSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                           True
+                        </label>
+                            <br />
+                            <br />
+
+                            <input type="radio" class="Q7 p-2 btn-check" data-question-id="7" name="Seven" id="optionSSSSSS2" value="B" autocomplete="off" required />
+                        <label for="optionSSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                            False
+                        </label>
+                            <br />
+                            <br />
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                    <div class="tab-pane fade" id="page8" role="tabpanel" aria-labelledby="page8-tab">
+                        <br />
+                        <br />
+
+                        <p class="QTitle" align=left style="margin-left:40px;">
+                            Question 8/8<span class="Qsig">：</span>
+
+                            <br />
+
+
+                            Satirical news articles are considered fake news because they contain false information.
+                        </p>
+
+
+                        <div class="chooseAnswer7 btn-group-sm">
+
+                            <br />
+                            <br />
+                        <input type="radio" class="Q8 p-2 btn-check" data-question-id="8" name="Eight" id="optionSSSSSSS" value="A" autocomplete="off" required />
+                        <label for="optionSSSSSSS" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                           True
+                        </label>            
+                         <br />
+                            <br />      
+                            
+                         <input type="radio" class="Q8 p-2 btn-check" data-question-id="8" name="Eight" id="optionSSSSSSS2" value="B" autocomplete="off" required />
+                         <label for="optionSSSSSSS2" class="checkbox1 btn btn-primary p-2 col-sm-8 ">
+                            False
+                         </label>
+                            <br />
+                            <br />       
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <button type="submit" asp-area="" asp-controller="Home" asp-action="SubmitQuiz" id="quizsub" class="SubmitQuestion p-2" align=right d>Finish Quiz</button>
+
+                        <br />
+                        <br />
+
+
+
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="QpageNav nav nav-pills justify-content-center" role="tablist">
+                            <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link btn btn-secondary" href="#1" type="button" onclick=goBack()><</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="1"><a class="nav-link" id="page1-tab" href="#" data-bs-toggle="tab" data-bs-target="#page1" type="button" aria-controls="page1" aria-selected="true">1</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="2"><a class="nav-link" id="page2-tab" href="#" data-bs-toggle="tab" data-bs-target="#page2" type="button" aria-controls="page2" aria-selected="true">2</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="3"><a class="nav-link" id="page3-tab" href="#" data-bs-toggle="tab" data-bs-target="#page3" type="button" aria-controls="page3" aria-selected="true">3</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="4"><a class="nav-link" id="page4-tab" href="#" data-bs-toggle="tab" data-bs-target="#page4" type="button" aria-controls="page4" aria-selected="true">4</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="5"><a class="nav-link" id="page5-tab" href="#" data-bs-toggle="tab" data-bs-target="#page5" type="button" aria-controls="page5" aria-selected="true">5</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="6"><a class="nav-link" id="page6-tab" href="#" data-bs-toggle="tab" data-bs-target="#page6" type="button" aria-controls="page6" aria-selected="true">6</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="7"><a class="nav-link" id="page7-tab" href="#" data-bs-toggle="tab" data-bs-target="#page7" type="button" aria-controls="page7" aria-selected="true">7</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation" data-question-id="8"><a class="nav-link" id="page8-tab" href="#" data-bs-toggle="tab" data-bs-target="#page8" type="button" aria-controls="page8" aria-selected="true">8</a></li>
+                            <li class="QpageNavItem nav-item" role="presentation"><a class="nav-link btn btn-secondary" href="#1" type="button" onclick=goForward()>></a></li>
+                        </ul>
+                    </nav>
+                    <br />
+                    <br />
+
+
+                </div>
+            </div>
+        </form>
+        <br />
+        <br />
+        <br />
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        function getCurrentTarget() {
+            var activeTab = document.querySelector('.tab-pane.fade.show.active');
+            return activeTab.id;
+        }
+
+        var CheckAnswer = document.getElementById("quizsub");
+        CheckAnswer.addEventListener("click", function (event) {
+            if (!isFormValid()) {
+                event.preventDefault(); // 阻止按钮的默认操作
+                alert("Please answer all questions!"); // 弹出提示窗口
+            }
+        });
+        function isFormValid() {
+            var isValid = true;
+            var requiredRadios = document.querySelectorAll('input[type="radio"][required]');
+            requiredRadios.forEach(function (radio) {
+                var radioName = radio.getAttribute('name');
+                var radioGroup = document.querySelectorAll('input[name="' + radioName + '"]');
+                var radioChecked = false;
+                radioGroup.forEach(function (radioOption) {
+                    if (radioOption.checked) {
+                        radioChecked = true;
+                    }
+                });
+                if (!radioChecked) {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+        function goBack() {
+            var currentTarget = getCurrentTarget();
+            var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+            for (var i = 0; i < tabLinks.length; i++) {
+                if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
+                    tabLinks[i - 1].click();
+                    break;
+                }
+            }
+        }
+        function goForward() {
+            var currentTarget = getCurrentTarget();
+            var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+            for (var i = 0; i < tabLinks.length; i++) {
+                if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
+                    tabLinks[i + 1].click();
+                    break;
+                }
+            }
+        }
+
+        $(function () {
+
+            $('input[type="radio"]').click(function () {
+
+                var questionId = $(this).data('question-id');
+
+                $('li.nav-item[data-question-id="' + questionId + '"]').addClass('answered');
+            });
+        });
+        $(function () {
+            $('input[type="radio"]').change(function () {
+                var currentTarget = getCurrentTarget();
+                var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
+                for (var i = 0; i < tabLinks.length; i++) {
+                    if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
+                        tabLinks[i + 1].click();
+                        break;
+                    }
+                }
+
+            });
+        });
+
+    </script>
+
+</body>
