@@ -25,7 +25,7 @@
     }
 
     .Back {
-        color:  #708090;
+        color: #708090;
         font-size: 14px;
         font-family: 'Roboto-medium';
         position: relative;
@@ -34,13 +34,14 @@
 
     .aContent {
         font-family: Roboto-regular;
-
     }
-    .QuizR{
-        font-family:Poppins-medium;
+
+    .QuizR {
+        font-family: Poppins-medium;
         background-image: url('../Image/QuizStart1.png');
         background-size: cover;
     }
+
     .Nav {
         color: #708090;
         font-size: 14px;
@@ -54,69 +55,70 @@
         position: relative;
         right: 20px;
     }
-    .QpageNavItem{
-        margin-right:10px;
-        margin-left:10px;
+
+    .QpageNavItem {
+        margin-right: 10px;
+        margin-left: 10px;
         border-radius: 4px;
         background-color: #D9D9D9;
     }
 
-    .QpageNavItem:hover {
-
-        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
-    }
-
-    .QpageNavItem:focus {
+        .QpageNavItem:hover {
             background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
-     }
+        }
+
+        .QpageNavItem:focus {
+            background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        }
 
 
-    .checkbox1{
-        border:0px solid;
+    .checkbox1 {
+        border: 0px solid;
         position: relative;
-        color:black;
+        color: black;
         background-color: #D9D9D9;
-
-    }
-    .checkbox1:hover {
-        background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
     }
 
-    .QuestionType{
-        font-size:30px;
+        .checkbox1:hover {
+            background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
+        }
+
+    .QuestionType {
+        font-size: 30px;
     }
 
-    .QTitle{
-        position:relative;
-        font-family:Poppins-Semibold;
+    .QTitle {
+        position: relative;
+        font-family: Poppins-Semibold;
     }
-    .Qsig{
+
+    .Qsig {
         color: #FFBB00;
     }
 
-    .Feedback{
-        font-family:Roboto-regular;
+    .Feedback {
+        font-family: Roboto-regular;
     }
-    .FindArticle{
-        font-family:Poppins-semibold;
-        position:relative;
+
+    .FindArticle {
+        font-family: Poppins-semibold;
+        position: relative;
         right: 20px;
-        color:white;
+        color: white;
         border: 0px solid;
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
-        border-radius:40px;
+        border-radius: 40px;
     }
-    .feedB{
-        position:relative;
+
+    .feedB {
+        position: relative;
         left: 20px;
     }
+
     input:checked + label {
         background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);
     }
-    
-
 </style>
-<body>
 <div class="AboutContent body-content p-1 bg-black" style="margin-top:-23px;margin-left:-15px;margin-right:120px;">
     <br />
     <div class="aTopic">
@@ -124,73 +126,57 @@
         <h2 class="AboutTitle">Quiz.</h2>
     </div>
     <br />
-   
+
 </div>
 
 <div class="aContent  p-2 " style="background-color:#D9D9D9" align=center>
-     <div class="Back" align=left>
-        <br/>
+    <div class="Back" align=left>
+        <br />
         <p>
             <a class="Nav" asp-area="" asp-controller="Home" asp-action="Index">Home</a>  >  <a class="Nav" asp-area="" asp-controller="Home" asp-action="Quiz">Quiz</a>
-        </p >
-    </div>
-    <div class=" QuizR col-sm-10 bg-white" >
-        <br />
-        <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        <div class="Res col-sm-6" align="left" style=" margin-right:30px;">
-        <p class="ResultTitle">You've Got:</p>
-            <h1 class="ResultScore"  align=left><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
-        <br/>
-        <div class="col-sm-6" align=left>
-            <svg id="chart"  style="margin-left:-10px"></svg>
-        </div>
-        <p class="feedB" align="justify" style="margin-right:40px">
-            Feedback:
-            <span class="Feedback">@Html.Raw(@Model.Feedback)</span>
         </p>
-        <br />
-        <form method="get" action="@Model.SuggestedPage">
-                <div >
-                 <button class="FindArticle p-2" style="margin-left:30px;" type="submit">@Model.SuggestedText</button>
-            </div>
-        </form>
-        <br />
-        <br />
-        <br />
-            <br />
-            <br />
-            <br />
-                <br />
-                
-               
-        </div>
-        <br />
-        <br />
-        <br />
+    </div>
+    <div class=" QuizR col-sm-10 bg-white">
         <br />
        
+        <div class="Res col-sm-6" align="left" style="margin-right:30px;">
+            <p class="ResultTitle">You've Got:</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 class="ResultScore" align=left><span style="color:#FFBB00">@Model.Score</span> out of 8.</h1>
+                <div class="col-sm-6" align=left>
+                    <svg id="chart" style="margin-left:-150px"></svg>
+                </div>
+            </div>
+            <p class="feedB" align="justify" style="margin-right:40px">
+                Feedback:
+                <span class="Feedback">@Html.Raw(@Model.Feedback)</span>
+            </p>
+            <form method="get" action="@Model.SuggestedPage">
+                <div>
+                    <button class="FindArticle p-2" style="margin-left:30px;" type="submit">@Model.SuggestedText</button>
+                </div>
+            </form>
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
+
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 <script>
     var mark = @Model.Score;
-    var mark1=mark;
-    mark=12.5*mark;
+    var mark1 = mark;
+    mark = 12.5 * mark;
     var percent = [100 - mark, mark];
 
     var width = 460,
         height = 300,
         radius = Math.min(width, height) / 2;
 
-    var color = ["#FFFFFF", "#FFBB00"];
+    var color = ["#F0F0F0", "#FFBB00"];
 
     var pie = d3.layout.pie()
         .sort(null);
@@ -233,6 +219,5 @@
         .style("font-size", "1.3em")
         .transition()
         .delay(1000)
-            .text(function (d) { return mark1 + '/8'; })
+        .text(function (d) { return mark1 + '/8'; })
 </script>
-</body>
