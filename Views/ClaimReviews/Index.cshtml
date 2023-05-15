@@ -110,13 +110,13 @@
             <span class="NewsTitle fs-5">@Html.DisplayFor(modelItem => item.Title)</span>
             <br />
             <span class="View">
-                &nbsp;Review Date: @Html.DisplayFor(modelItem => item.ReviewDate)
+                &nbsp;&nbsp;Review Date: @Html.DisplayFor(modelItem => item.ReviewDate)
             </span>
             <br />
-            <span class="View">&nbsp;View this article: </span>
+                <span class="View">&nbsp;&nbsp;View this article: </span>
                 <a class="Link" href=@Html.DisplayFor(modelItem => item.Url) target="_blank">@Html.DisplayFor(modelItem => item.Title)</a>
             <br />
-            <span class="Rating fs-5">&nbsp;Rating: </span>
+                <span class="Rating fs-5">&nbsp;&nbsp;Rating: </span>
             <span class="RatingStatus">@Html.DisplayFor(modelItem => item.TextualRating)</span>
             <br />
             <br />
@@ -124,6 +124,9 @@
             {
                 <hr />
             }
+           @* @if(count ==100){
+                    break;
+                }*@
         }
         </div>
     </div>

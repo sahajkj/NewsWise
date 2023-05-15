@@ -262,8 +262,33 @@ namespace NewsWise.Controllers
         {
             return View();
         }
-       
+        public IActionResult QuizContent1()
+        {
+            return View();
+        }
 
+        public IActionResult QuizContent2()
+        {
+            return View();
+        }
+
+        public IActionResult RandomQuizPage()
+        {
+            Random random = new Random();
+            int randomQuiz = random.Next(1, 4); 
+
+            switch (randomQuiz)
+            {
+                case 1:
+                    return RedirectToAction("QuizContent", "Home"); 
+                case 2:
+                    return RedirectToAction("QuizContent1", "Home"); 
+                case 3:
+                    return RedirectToAction("QuizContent2", "Home"); 
+                default:
+                    return RedirectToAction("Index", "Home"); 
+            }
+        }
         public IActionResult NewsSpotter() 
         {
             return View();
