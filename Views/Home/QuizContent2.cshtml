@@ -4,60 +4,6 @@
 @{
     ViewData["Title"] = "Quiz Content 2";
 }
-
-
-<!-- JavaScript -->
-@*<div class="container">
-    <nav>
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#page1">Page 1</button>
-            </li>
-            <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#page2">Page 2</button>
-            </li>
-            <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#page3">Page 3</button>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="tab-content">
-        <div class="tab-pane fade show active" id="page1">
-            <h1>Page 1</h1>
-        </div>
-        <div class="tab-pane fade" id="page2">
-            <h1>Page 2</h1>
-        </div>
-        <div class="tab-pane fade" id="page3">
-            <h1>Page 3</h1>
-        </div>
-    </div>
-
-    <button onclick="goBack()" class="btn btn-secondary">Previous page</button>
-</div>
-
-<!-- JavaScript -->
-<script>
-
-    function getCurrentTarget() {
-        var activeTab = document.querySelector('.tab-pane.fade.show.active');
-        return activeTab.id;
-    }
-
-
-    function goBack() {
-        var currentTarget = getCurrentTarget();
-        var tabLinks = document.querySelectorAll('[data-bs-toggle="tab"]');
-        for (var i = 0; i < tabLinks.length; i++) {
-            if (tabLinks[i].getAttribute('data-bs-target') == '#' + currentTarget) {
-                tabLinks[i-1].click();
-                break;
-            }
-        }
-    }
-</script>*@
-
 <style>
     body {
         background-color: black;
@@ -553,6 +499,7 @@
                         <br />
                         <br />
                         <br />
+                        <input type="hidden" name="quizName" value="Quiz3" />
                         <button type="submit" asp-area="" asp-controller="Home" asp-action="SubmitQuiz" id="quizsub" class="SubmitQuestion p-2" align=right d>Finish Quiz</button>
 
                         <br />

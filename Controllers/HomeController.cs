@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -65,8 +66,8 @@ namespace NewsWise.Controllers
         {
             return View();
         }
-        public IActionResult Importance() 
-        {   
+        public IActionResult Importance()
+        {
             return View();
         }
 
@@ -135,96 +136,273 @@ namespace NewsWise.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitQuizAsync()
         {
+            var quizName = Request.Form["quizName"];
             var score = 0;
             var chosenOption = new List<string>();
-            // Check answer for Question 1
-            var q1Answer = Request.Form["One"];
-            chosenOption.Add(q1Answer);
-            if (q1Answer == "B")
-            {
-                score += 1;
-            }
 
-            // Check answer for Question 2
-            var q2Answer = Request.Form["Two"];
-            chosenOption.Add(q2Answer);
-            if (q2Answer == "B")
-            {
-                score += 1;
-            }
-            var q3Answer = Request.Form["Three"];
-            chosenOption.Add(q3Answer);
-            if (q3Answer == "C")
-            {
-                score += 1;
-            }
-            // Display result
-            var q4Answer = Request.Form["Four"];
-            chosenOption.Add(q4Answer);
-            if (q4Answer == "B")
-            {
-                score += 1;
-            }
-            var q5Answer = Request.Form["Five"];
-            chosenOption.Add(q5Answer);
-            if (q5Answer == "B")
-            {
-                score += 1;
-            }
-            var q6Answer = Request.Form["Six"];
-            chosenOption.Add(q6Answer);
-            if (q6Answer == "B")
-            {
-                score += 1;
-            }
-            var q7Answer = Request.Form["Seven"];
-            chosenOption.Add(q7Answer);
-            if (q7Answer == "A")
-            {
-                score += 1;
-            }
-            var q8Answer = Request.Form["Eight"];
-            chosenOption.Add(q8Answer);
-            if (q8Answer == "A")
-            {
-                score += 1;
-            }
-            var answerList = new List<int>();
-            foreach (string answer in chosenOption)
-            {
-                switch (answer)
-                {
-                    case "A":
-                        answerList.Add(0);
-                        break;
-                    case "B":
-                        answerList.Add(1);
-                        break;
-                    case "C":
-                        answerList.Add(2);
-                        break;
-                }
-            }
-            // Prepare quiz data to send to Flask API
             var quizData = new
             {
-                q1 = "MC1",
-                q2 = "MC3",
-                q3 = "MC6",
-                q4 = "MC8",
-                q5 = "MC5",
-                q6 = "A1",
-                q7 = "A2",
-                q8 = "A3",
-                a1 = answerList[0],
-                a2 = answerList[1],
-                a3 = answerList[2],
-                a4 = answerList[3],
-                a5 = answerList[4],
-                a6 = answerList[5],
-                a7 = answerList[6],
-                a8 = answerList[7]
+                q1 = "",
+                q2 = "",
+                q3 = "",
+                q4 = "",
+                q5 = "",
+                q6 = "",
+                q7 = "",
+                q8 = "",
+                a1 = 0,
+                a2 = 0,
+                a3 = 0,
+                a4 = 0,
+                a5 = 0,
+                a6 = 0,
+                a7 = 0,
+                a8 = 0
             };
+
+            var q1Answer = Request.Form["One"];
+            var q2Answer = Request.Form["Two"];
+            var q3Answer = Request.Form["Three"];
+            var q4Answer = Request.Form["Four"];
+            var q5Answer = Request.Form["Five"];
+            var q6Answer = Request.Form["Six"];
+            var q7Answer = Request.Form["Seven"];
+            var q8Answer = Request.Form["Eight"];
+
+            chosenOption.Add(q1Answer);
+            chosenOption.Add(q2Answer);
+            chosenOption.Add(q3Answer);
+            chosenOption.Add(q4Answer);
+            chosenOption.Add(q5Answer);
+            chosenOption.Add(q6Answer);
+            chosenOption.Add(q7Answer);
+            chosenOption.Add(q8Answer);
+
+            switch (quizName)
+            {
+                case "Quiz1":
+                // Process answers for Quiz1
+                // Check answer for Question 1
+                if (q1Answer == "B")
+                {
+                    score += 1;
+                }
+
+                // Check answer for Question 2
+                if (q2Answer == "B")
+                {
+                    score += 1;
+                }
+                if (q3Answer == "C")
+                {
+                    score += 1;
+                }
+                // Display result
+                if (q4Answer == "B")
+                {
+                    score += 1;
+                }
+                if (q5Answer == "B")
+                {
+                    score += 1;
+                }
+                if (q6Answer == "B")
+                {
+                    score += 1;
+                }
+                if (q7Answer == "A")
+                {
+                    score += 1;
+                }
+                if (q8Answer == "A")
+                {
+                    score += 1;
+                }
+                var answerList = new List<int>();
+                foreach (string answer in chosenOption)
+                {
+                    switch (answer)
+                    {
+                        case "A":
+                            answerList.Add(0);
+                            break;
+                        case "B":
+                            answerList.Add(1);
+                            break;
+                        case "C":
+                            answerList.Add(2);
+                            break;
+                    }
+                }
+                // Prepare quiz data to send to Flask API
+                quizData = new
+                {
+                    q1 = "MC1",
+                    q2 = "MC3",
+                    q3 = "MC6",
+                    q4 = "MC8",
+                    q5 = "MC5",
+                    q6 = "A1",
+                    q7 = "A2",
+                    q8 = "A3",
+                    a1 = answerList[0],
+                    a2 = answerList[1],
+                    a3 = answerList[2],
+                    a4 = answerList[3],
+                    a5 = answerList[4],
+                    a6 = answerList[5],
+                    a7 = answerList[6],
+                    a8 = answerList[7]
+                };
+                break;
+                case "Quiz2":
+                // Process answers for QuizContent1
+                if (q1Answer == "C")
+                {
+                    score += 1;
+                }
+
+                if (q2Answer == "B")
+                {
+                    score += 1;
+                }
+                if (q3Answer == "C")
+                {
+                    score += 1;
+                }
+                if (q4Answer == "A")
+                {
+                    score += 1;
+                }
+                if (q5Answer == "B")
+                {
+                    score += 1;
+                }
+                if (q6Answer == "A")
+                {
+                    score += 1;
+                }
+                if (q7Answer == "A")
+                {
+                    score += 1;
+                }
+                if (q8Answer == "B")
+                {
+                    score += 1;
+                }
+                answerList = new List<int>();
+                foreach (string answer in chosenOption)
+                {
+                    switch (answer)
+                    {
+                        case "A":
+                            answerList.Add(0);
+                            break;
+                        case "B":
+                            answerList.Add(1);
+                            break;
+                        case "C":
+                            answerList.Add(2);
+                            break;
+                    }
+                }
+                // Prepare quiz data to send to Flask API
+                quizData = new
+                {
+                    q1 = "MC9",
+                    q2 = "MC10",
+                    q3 = "MC11",
+                    q4 = "MC12",
+                    q5 = "MC13",
+                    q6 = "T1",
+                    q7 = "T2",
+                    q8 = "T3",
+                    a1 = answerList[0],
+                    a2 = answerList[1],
+                    a3 = answerList[2],
+                    a4 = answerList[3],
+                    a5 = answerList[4],
+                    a6 = answerList[5],
+                    a7 = answerList[6],
+                    a8 = answerList[7]
+                };
+                break;
+                case "Quiz3":
+                // Process answers for QuizContent2
+                // Check answer for Question 1
+                if (q1Answer == "B")
+                {
+                    score += 1;
+                }
+
+                // Check answer for Question 2
+                if (q2Answer == "C")
+                {
+                    score += 1;
+                }
+                if (q3Answer == "B")
+                {
+                    score += 1;
+                }
+                // Display result
+                if (q4Answer == "C")
+                {
+                    score += 1;
+                }
+                if (q5Answer == "B")
+                {
+                    score += 1;
+                }
+                if (q6Answer == "A")
+                {
+                    score += 1;
+                }
+                if (q7Answer == "A")
+                {
+                    score += 1;
+                }
+                if (q8Answer == "A")
+                {
+                    score += 1;
+                }
+                answerList = new List<int>();
+                foreach (string answer in chosenOption)
+                {
+                    switch (answer)
+                    {
+                        case "A":
+                            answerList.Add(0);
+                            break;
+                        case "B":
+                            answerList.Add(1);
+                            break;
+                        case "C":
+                            answerList.Add(2);
+                            break;
+                    }
+                }
+                // Prepare quiz data to send to Flask API
+                quizData = new
+                {
+                    q1 = "MC14",
+                    q2 = "MC15",
+                    q3 = "MC16",
+                    q4 = "MC17",
+                    q5 = "MC18",
+                    q6 = "T5",
+                    q7 = "T6",
+                    q8 = "T7",
+                    a1 = answerList[0],
+                    a2 = answerList[1],
+                    a3 = answerList[2],
+                    a4 = answerList[3],
+                    a5 = answerList[4],
+                    a6 = answerList[5],
+                    a7 = answerList[6],
+                    a8 = answerList[7]
+                };
+                break;
+            }
 
             // Send quiz data to Flask API and receive feedback
             var client = new HttpClient();
@@ -254,9 +432,6 @@ namespace NewsWise.Controllers
 
             // Display result and feedback
             return View("QuizResults", new { Score = score, Feedback = quizFeedback.Replace("\n", "<br><br>"), SuggestedPage, SuggestedText = feedback["Suggested Page"] });
-
-
-            //return View("QuizResults",score);
         }
         public IActionResult QuizContent()
         {
@@ -275,21 +450,21 @@ namespace NewsWise.Controllers
         public IActionResult RandomQuizPage()
         {
             Random random = new Random();
-            int randomQuiz = random.Next(1, 4); 
+            int randomQuiz = random.Next(1, 4);
 
             switch (randomQuiz)
             {
                 case 1:
-                    return RedirectToAction("QuizContent", "Home"); 
+                    return RedirectToAction("QuizContent", "Home");
                 case 2:
-                    return RedirectToAction("QuizContent1", "Home"); 
+                    return RedirectToAction("QuizContent1", "Home");
                 case 3:
-                    return RedirectToAction("QuizContent2", "Home"); 
+                    return RedirectToAction("QuizContent2", "Home");
                 default:
-                    return RedirectToAction("Index", "Home"); 
+                return RedirectToAction("Index", "Home");
             }
         }
-        public IActionResult NewsSpotter() 
+        public IActionResult NewsSpotter()
         {
             return View();
         }
@@ -297,12 +472,12 @@ namespace NewsWise.Controllers
         {
             return View();
         }
-        
+
         public IActionResult About()
         {
             return View();
         }
-        
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
