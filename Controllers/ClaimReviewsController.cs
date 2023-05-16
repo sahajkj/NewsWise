@@ -18,14 +18,6 @@ namespace NewsWise.Controllers
             _context = context;
         }
 
-        // GET: ClaimReviews
-        //public async Task<IActionResult> Index()
-        //{
-        //      return _context.Review != null ? 
-        //                  View(await _context.Review.ToListAsync()) :
-        //                  Problem("Entity set 'NewswiseDbContext.Review'  is null.");
-        //}
-
         public async Task<IActionResult> Index(string searchString)
         {
             //searchString = "trump";
@@ -35,7 +27,7 @@ namespace NewsWise.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 articles = articles.Where(a => a.Title.Contains(searchString)
-                                            || a.Url.Contains(searchString));
+                                            || a.Url.Contains(searchString)).Take(20);
             }
             articles = articles.OrderByDescending(a => a.ReviewDate);
             return View(await articles.ToListAsync());
