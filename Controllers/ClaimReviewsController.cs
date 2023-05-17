@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using NewsWise.Models;
 
 namespace NewsWise.Controllers
@@ -28,11 +29,27 @@ namespace NewsWise.Controllers
             {
                 articles = articles.Where(a => a.Title.Contains(searchString)
                                             || a.Url.Contains(searchString)).Take(20);
+
+
+
+
             }
             articles = articles.OrderByDescending(a => a.ReviewDate);
-            return View(await articles.ToListAsync());
-        }
 
+            if (articles.IsNullOrEmpty())
+            {
+                return View("NoSearch", await articles.ToListAsync());
+            }
+            else
+            {
+                return View(await articles.ToListAsync());
+
+            }
+        }
+        public IActionResult NoSearch()
+        {
+            return View();
+        }
         // GET: ClaimReviews/Details/5
         public async Task<IActionResult> Details(int? id)
         {

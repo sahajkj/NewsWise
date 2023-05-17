@@ -23,7 +23,7 @@
 
     .Back5 {
         color: #708090;
-        font-size: 10px;
+        font-size: 16px;
         font-family: 'Roboto-medium';
         position: relative;
         left: 50px;
@@ -31,7 +31,7 @@
 
     .Nav5 {
         color: #708090;
-        font-size: 10px;
+        font-size: 16px;
         font-family: 'Roboto-medium';
     }
 
@@ -99,34 +99,40 @@
     <div class="container bg-white">
         <hr />
         <div class="col-sm-8">
-        @{
-            int count = 0;
-        }
-        @foreach (var item in Model)
-        {
-            count++;
-            <span class="Node">.</span>
+            @{
+                int count = 0;
+              } 
+        
+                @foreach (var item in Model)
+                {
+                    count++;
 
-            <span class="NewsTitle fs-5">@Html.DisplayFor(modelItem => item.Title)</span>
-            <br />
-            <span class="View">
-                &nbsp;&nbsp;Review Date: @Html.DisplayFor(modelItem => item.ReviewDate)
-            </span>
-            <br />
-                <span class="View">&nbsp;&nbsp;View this article: </span>
-                <a class="Link" href=@Html.DisplayFor(modelItem => item.Url) target="_blank">@Html.DisplayFor(modelItem => item.Title)</a>
-            <br />
-                <span class="Rating fs-5">&nbsp;&nbsp;Rating: </span>
-            <span class="RatingStatus">@Html.DisplayFor(modelItem => item.TextualRating)</span>
-            <br />
-            <br />
-            @if (count != Model.Count())
-            {
-                <hr />
-            }
-           @* @if(count ==100){
+
+                    {
+                        <span class="Node">.</span>
+
+                        <span class="NewsTitle fs-5">@Html.DisplayFor(modelItem => item.Title)</span>
+                        <br />
+                        <span class="View">
+                            &nbsp;&nbsp;Review Date: @Html.DisplayFor(modelItem => item.ReviewDate)
+                        </span>
+                        <br />
+                        <span class="View">&nbsp;&nbsp;View this article: </span>
+                        <a class="Link" href=@Html.DisplayFor(modelItem => item.Url) target="_blank">@Html.DisplayFor(modelItem => item.Title)</a>
+                        <br />
+                        <span class="Rating fs-5">&nbsp;&nbsp;Rating: </span>
+                        <span class="RatingStatus">@Html.DisplayFor(modelItem => item.TextualRating)</span>
+                        <br />
+                        <br />
+                        @if (count != Model.Count())
+                        {
+                            <hr />
+                        }
+                        @* @if(count ==100){
                     break;
                 }*@
+                }
+                
         }
         </div>
     </div>
