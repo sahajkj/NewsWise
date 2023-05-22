@@ -23,16 +23,18 @@ namespace NewsWise.Controllers
         {
             //searchString = "trump";
             var articles = from a in _context.Review
-                           select a;
+                           select new ClaimReviewViewModel
+                           {
+                               Title = a.Title,
+                               Url = a.Url,
+                               ReviewDate = a.ReviewDate,
+                               TextualRating = a.TextualRating
+                           };
+
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                articles = articles.Where(a => a.Title.Contains(searchString)
-                                            || a.Url.Contains(searchString)).Take(20);
-
-
-
-
+                articles = articles.Where(a => a.Title.Contains(searchString)).Take(20);
             }
             articles = articles.OrderByDescending(a => a.ReviewDate);
 
@@ -67,7 +69,7 @@ namespace NewsWise.Controllers
 
             return View(claimReview);
         }
-
+        /*
         // GET: ClaimReviews/Create
         public IActionResult Create()
         {
@@ -177,7 +179,7 @@ namespace NewsWise.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        */
         private bool ClaimReviewExists(int id)
         {
           return (_context.Review?.Any(e => e.ClaimReviewId == id)).GetValueOrDefault();

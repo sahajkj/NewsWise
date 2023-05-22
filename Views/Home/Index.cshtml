@@ -102,6 +102,9 @@
     .BodyPar {
         display: none;
     }
+
+    
+
 </style>
 
 <div class="TopicBG body-content p-3 bg-black" style="margin-top:-23px;margin-left:-20px;margin-right:-20px;">
@@ -131,10 +134,15 @@
     <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
     </div>
     </form>*@
-    <form asp-controller="ClaimReviews" asp-action="Index" method="get">
+    <form asp-controller="ClaimReviews" asp-action="Index" method="get" onsubmit="showLoadingAnimation()">
         <div class="searchBody" align="center">
             <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
             <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
+            
+            <div class="searchAnimation">
+                <div id="loadingOverlay" class="loading-spinner"></div>
+            </div>
+
         </div>
     </form>
 
@@ -378,11 +386,20 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+        
         $(function () {
             $("#searchQuery").autocomplete({
                 source: '/Home/Autofill'
             });
+
+            // Handle form submission
+            $("form").on("submit", function () {
+                showLoadingAnimation();
+            });
         });
+        function showLoadingAnimation() {
+            $("#loadingOverlay").show();
+        }
         var randomIndex = Math.floor(Math.random() * 6);
 
         

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NewsWise.Models.ClaimReview>
+﻿@model IEnumerable<NewsWise.Models.ClaimReviewViewModel>
 
 @{
     ViewData["Title"] = "Search Result";
@@ -66,15 +66,25 @@
         font-size:20px;
     }
 </style>
-<script></script>
 <div class="SearchTitle bg-black" style="margin-top:-20px;margin-left:-15px;margin-right:-15px">
     <br />
     <br />
     <br />
-    <form asp-controller="ClaimReviews" asp-action="Index" method="get">
+    @*<form asp-controller="ClaimReviews" asp-action="Index" method="get">
         <div class="searchBody" align=center>
             <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
             <button type="submit" class="SearchBut p-3" value="SEARCH" style="background-color: #FFBB00;border:0px solid;">Search</button>
+        </div>
+    </form>*@
+    <form asp-controller="ClaimReviews" asp-action="Index" method="get" onsubmit="showLoadingAnimation()">
+        <div class="searchBody" align="center">
+            <input type="text" id="searchQuery" name="searchString" class="textfield p-3 mt-auto text-center" placeholder="SEARCH YOUR NEWS HERE TO FIND THE TRUTH ..." style="width:50%; background-color:#F5F5F5;border:0px solid;" />
+            <button type="submit" class="SearchBut p-3" value="SEARCH" style="background: linear-gradient(180deg, #FFBB00 0%, #F2A60C 100%);border:0px solid; border-radius:4px;">Search</button>
+            
+            <div class="searchAnimation">
+                <div id="loadingOverlay" class="loading-spinner"></div>
+            </div>
+
         </div>
     </form>
     <br />
@@ -152,6 +162,14 @@
             $("#searchQuery").autocomplete({
                 source: '/Home/Autofill'
             });
+
+            // Handle form submission
+            $("form").on("submit", function () {
+                showLoadingAnimation();
+            });
         });
+        function showLoadingAnimation() {
+            $("#loadingOverlay").show();
+        }
     </script>
 }

@@ -1,12 +1,7 @@
-﻿
-model IEnumerable<NewsWise.Models.ClaimReview>
-@{
+﻿@{
     
     ViewData["Title"] = "No Search Results";
 }
-
-
-
 <style>
     .NewsTitle {
         font-family: Poppins-semibold;
@@ -112,48 +107,11 @@ model IEnumerable<NewsWise.Models.ClaimReview>
         <hr />
         <div class="col-sm-12">
             <div align=center>
-                    <img class="col-sm-8" src="~/image/search 1.png" style="width:100px;height:100px;" />
+                <img class="col-sm-8" src="~/image/search 1.png" style="width:100px;height:100px;" />
                 <br />
                 <p class="NoSearchTitle" style="font-size:22px;">Sorry, we couldn’t find what you’re looking for.</p>
                 <p style="font-family:Roboto-Regular;font-size:20px;">Please try again with different key words.</p>
-               
-
-                    </div>
-            @*@{
-                int count = 0;
-            }
-
-            @foreach (var item in Model)
-            {
-                count++;
-
-
-                {
-                    <span class="Node">.</span>
-
-                    <span class="NewsTitle fs-5">@Html.DisplayFor(modelItem => item.Title)</span>
-                    <br />
-                    <span class="View">
-                        &nbsp;&nbsp;Review Date: @Html.DisplayFor(modelItem => item.ReviewDate)
-                    </span>
-                    <br />
-                    <span class="View">&nbsp;&nbsp;View this article: </span>
-                    <a class="Link" href=@Html.DisplayFor(modelItem => item.Url) target="_blank">@Html.DisplayFor(modelItem => item.Title)</a>
-                    <br />
-                    <span class="Rating fs-5">&nbsp;&nbsp;Rating: </span>
-                    <span class="RatingStatus">@Html.DisplayFor(modelItem => item.TextualRating)</span>
-                    <br />
-                    <br />
-                    @if (count != Model.Count())
-                    {
-                        <hr />
-                    }
-                    @* @if(count ==100){
-            break;
-            }
-                }
-
-            }*@
+                </div>
         </div>
     </div>
     <br />
