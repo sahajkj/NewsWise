@@ -23,7 +23,7 @@ namespace NewsWise.Controllers
         [HttpPost]
         public IActionResult Landing(string password)
         {
-            if (password == "ITScamps@FIT5120")
+            if (password == "12345678")
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -122,11 +122,11 @@ namespace NewsWise.Controllers
         }
         public IActionResult Index(int page = 1, int pageSize = 10)
         {
-            var records = _context.Review
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-            return View(records);
+            //var records = _context.Review
+            //    .Skip((page - 1) * pageSize)
+            //    .Take(pageSize)
+            //    .ToList();
+            return View();
         }
 
         public IActionResult SpotTip()
